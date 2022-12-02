@@ -15,10 +15,10 @@ namespace DBFactory
 {
     public partial class Form1 : Form
     {
-        
-          OleDbConnection cn = new OleDbConnection(
-        @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\4z0t\source\repos\DBFactory\DBFactory\6.accdb"
-        );
+
+        OleDbConnection cn = new OleDbConnection(
+      @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Git\DBFactory\DBFactory\6.accdb"
+      );
         public Form1()
         {
             InitializeComponent();
