@@ -16,11 +16,27 @@ namespace DBFactory
     public partial class Form1 : Form
     {
 
-        OleDbConnection cn = new OleDbConnection(
-      @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Git\DBFactory\DBFactory\6.accdb"
-      );
+        void AddToListBox(ListBox lb, OleDbDataReader reader, int[] padding)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            while (reader.Read())
+            {
+                for (int i = 0; i < padding.Length; i++)
+                {
+                    stringBuilder.Append(reader[i].ToString().PadRight(padding[i]));
+                }
+                lb.Items.Add(stringBuilder.ToString());
+                stringBuilder.Clear();
+            }
+        }
+
+
+        OleDbConnection cn;
         public Form1()
         {
+            cn = new OleDbConnection(
+                @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Git\DBFactory\DBFactory\6.accdb"
+            );
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -43,18 +59,18 @@ namespace DBFactory
                 listBox1.Items.Add("Код доставки".PadRight(20) + "Пункт отправления".PadRight(30) + "Пункт назначения".PadRight(25) + "Дата".PadRight(10) + "Отметка о выполнении".PadRight(10));
                 listBox1.Items.Add("");
 
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(35) + reader[1].ToString().PadRight(40) + reader[2].ToString().PadRight(20) + reader[3].ToString().PadRight(40) + reader[4].ToString().PadRight(10));
-                }
-                reader.Close();
 
-                cn.Close();
+                AddToListBox(listBox1, reader, new int[] { 35, 40, 20, 40, 10 });
+
+                reader.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
                 MessageBox.Show(exception.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
 
@@ -74,10 +90,10 @@ namespace DBFactory
                 listBox1.Items.Add("Код покупателя".PadRight(20) + "Имя".PadRight(20) + "Адрес".PadRight(20) + "Телефон".PadRight(15) + "ИНН".PadRight(10));
                 listBox1.Items.Add("");
 
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(30) + reader[1].ToString().PadRight(20) + reader[2].ToString().PadRight(20) + reader[3].ToString().PadRight(20) + reader[4].ToString().PadRight(10));
-                }
+
+                AddToListBox(listBox1, reader, new int[] { 30, 20, 20, 20, 10 });
+
+
                 reader.Close();
 
                 cn.Close();
