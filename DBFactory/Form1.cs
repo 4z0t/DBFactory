@@ -15,8 +15,9 @@ namespace DBFactory
 {
     public partial class Form1 : Form
     {
+        const string PATH = "D:\\Git\\DBFactory\\DBFactory\\6.accdb";
 
-        void AddToListBox(ListBox lb, OleDbDataReader reader, int[] padding)
+        private void AddToListBox(ListBox lb, OleDbDataReader reader, int[] padding)
         {
             StringBuilder stringBuilder = new StringBuilder();
             while (reader.Read())
@@ -35,10 +36,25 @@ namespace DBFactory
         public Form1()
         {
             cn = new OleDbConnection(
-                @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Git\DBFactory\DBFactory\6.accdb"
+                @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + PATH
             );
             InitializeComponent();
         }
+
+        private void DisplayQueryResult(string query, string titleString, int[] padding)
+        {
+            OleDbCommand command = new OleDbCommand(query, cn);
+
+            OleDbDataReader reader = command.ExecuteReader();
+
+            listBox1.Items.Clear();
+            listBox1.Items.Add(titleString);
+            listBox1.Items.Add("");
+
+            AddToListBox(listBox1, reader, padding);
+            reader.Close();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
         }
@@ -51,18 +67,16 @@ namespace DBFactory
 
                 string query = "SELECT [Код доставки], [Пункт отправления], [Пункт назначения], [Дата], [Отметка о выполнении] FROM Доставка";
 
-                OleDbCommand command = new OleDbCommand(query, cn);
+                DisplayQueryResult(
+                    query,
+                    "Код доставки".PadRight(20) +
+                    "Пункт отправления".PadRight(30) +
+                    "Пункт назначения".PadRight(25) +
+                    "Дата".PadRight(10) +
+                    "Отметка о выполнении".PadRight(10),
+                    new int[] { 35, 40, 20, 40, 10 }
+                    );
 
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-                listBox1.Items.Add("Код доставки".PadRight(20) + "Пункт отправления".PadRight(30) + "Пункт назначения".PadRight(25) + "Дата".PadRight(10) + "Отметка о выполнении".PadRight(10));
-                listBox1.Items.Add("");
-
-
-                AddToListBox(listBox1, reader, new int[] { 35, 40, 20, 40, 10 });
-
-                reader.Close();
             }
             catch (Exception exception)
             {
@@ -82,19 +96,11 @@ namespace DBFactory
 
                 string query = "SELECT [Код покупателя], [Наименование покупателя], [Адрес], [Телефон], [ИНН] FROM Покупатель";
 
-                OleDbCommand command = new OleDbCommand(query, cn);
-
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-                listBox1.Items.Add("Код покупателя".PadRight(20) + "Имя".PadRight(20) + "Адрес".PadRight(20) + "Телефон".PadRight(15) + "ИНН".PadRight(10));
-                listBox1.Items.Add("");
-
-
-                AddToListBox(listBox1, reader, new int[] { 30, 20, 20, 20, 10 });
-
-
-                reader.Close();
+                DisplayQueryResult(
+                    query,
+                    "Код покупателя".PadRight(20) + "Имя".PadRight(20) + "Адрес".PadRight(20) + "Телефон".PadRight(15) + "ИНН".PadRight(10),
+                    new int[] { 30, 20, 20, 20, 10 }
+                    );
 
                 cn.Close();
             }
