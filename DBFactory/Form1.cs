@@ -17,6 +17,15 @@ namespace DBFactory
     {
         const string PATH = "D:\\Git\\DBFactory\\DBFactory\\6.accdb";
 
+        OleDbConnection cn;
+        public Form1()
+        {
+            cn = new OleDbConnection(
+                @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + PATH
+            );
+            InitializeComponent();
+        }
+
         private void AddToListBox(ListBox lb, OleDbDataReader reader, int[] padding)
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -29,16 +38,6 @@ namespace DBFactory
                 lb.Items.Add(stringBuilder.ToString());
                 stringBuilder.Clear();
             }
-        }
-
-
-        OleDbConnection cn;
-        public Form1()
-        {
-            cn = new OleDbConnection(
-                @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + PATH
-            );
-            InitializeComponent();
         }
 
         private void DisplayQueryResult(string query, string titleString, int[] padding)
@@ -98,17 +97,22 @@ namespace DBFactory
 
                 DisplayQueryResult(
                     query,
-                    "Код покупателя".PadRight(20) + "Имя".PadRight(20) + "Адрес".PadRight(20) + "Телефон".PadRight(15) + "ИНН".PadRight(10),
+                    "Код покупателя".PadRight(20) +
+                    "Имя".PadRight(20) +
+                    "Адрес".PadRight(20) +
+                    "Телефон".PadRight(15) +
+                    "ИНН".PadRight(10),
                     new int[] { 30, 20, 20, 20, 10 }
                     );
 
-                cn.Close();
+
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonSeller_Click(object sender, EventArgs e)
@@ -119,27 +123,21 @@ namespace DBFactory
 
                 string query = "SELECT [Код продавца], [Наименование продавца], [Адрес], [Телефон], [ИНН] FROM Продавец";
 
-                OleDbCommand command = new OleDbCommand(query, cn);
 
-                OleDbDataReader reader = command.ExecuteReader();
+                DisplayQueryResult(
+                    query,
+                    "Код продавца".PadRight(20) + "Имя".PadRight(20) + "Адрес".PadRight(20) + "Телефон".PadRight(15) + "ИНН".PadRight(10),
+                    new int[] { 30, 20, 20, 20, 10 }
+                    );
 
-                listBox1.Items.Clear();
-                listBox1.Items.Add("Код продавца".PadRight(20) + "Имя".PadRight(20) + "Адрес".PadRight(20) + "Телефон".PadRight(15) + "ИНН".PadRight(10));
-                listBox1.Items.Add("");
 
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(30) + reader[1].ToString().PadRight(20) + reader[2].ToString().PadRight(20) + reader[3].ToString().PadRight(20) + reader[4].ToString().PadRight(10));
-                }
-                reader.Close();
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonSale_Click(object sender, EventArgs e)
@@ -150,27 +148,25 @@ namespace DBFactory
 
                 string query = "SELECT [Номер накладной], [Цена], [Количество], [Дата продажи], [Код покупателя], [Код продавца], [Код доставки], [Код товара] FROM Продажа";
 
-                OleDbCommand command = new OleDbCommand(query, cn);
+                DisplayQueryResult(
+                    query,
+                    "Номер".PadRight(10) +
+                    "Цена".PadRight(15) +
+                    "Количество".PadRight(15) +
+                    "Дата".PadRight(35) +
+                    "Покупатель".PadRight(10) +
+                    "Продавец".PadRight(10) +
+                    "Доставка".PadRight(10) +
+                    "Товар".PadRight(15),
+                    new int[] { 15, 25, 15, 15, 25, 15 }
+                    );
 
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-                listBox1.Items.Add("Номер".PadRight(10) + "Цена".PadRight(15) + "Количество".PadRight(15) + "Дата".PadRight(35) + "Покупатель".PadRight(10) + "Продавец".PadRight(10) + "Доставка".PadRight(10) + "Товар".PadRight(15));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(15) + reader[1].ToString().PadRight(25) + reader[2].ToString().PadRight(15) + reader[3].ToString().PadRight(15) + reader[4].ToString().PadRight(15) + reader[5].ToString().PadRight(15) + reader[6].ToString().PadRight(15) + "                     " + reader[7].ToString().PadRight(15));
-                }
-                reader.Close();
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonSklad_Click(object sender, EventArgs e)
@@ -181,27 +177,19 @@ namespace DBFactory
 
                 string query = "SELECT [Код склада], [Регион], [Адрес], [Телефон], [Площадь] FROM Склад";
 
-                OleDbCommand command = new OleDbCommand(query, cn);
+                DisplayQueryResult(
+                    query,
+                    "Номер".PadRight(10) + "Регион".PadRight(29) + "Адрес".PadRight(25) + "Телефон".PadRight(25) + "Площадь".PadRight(10),
+                    new int[] { 10, 25, 25, 25, 10 }
+                    );
 
-                OleDbDataReader reader = command.ExecuteReader();
 
-                listBox1.Items.Clear();
-                listBox1.Items.Add("Номер".PadRight(10) + "Регион".PadRight(29) + "Адрес".PadRight(25) + "Телефон".PadRight(25) + "Площадь".PadRight(10));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(10) + reader[1].ToString().PadRight(25) + reader[2].ToString().PadRight(25) + reader[3].ToString().PadRight(25) + reader[4].ToString().PadRight(10));
-                }
-                reader.Close();
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonTovar_Click(object sender, EventArgs e)
@@ -212,27 +200,18 @@ namespace DBFactory
 
                 string query = "SELECT [Код товара], [Наименование товара], [Вес], [Размеры], [Номер склада] FROM Товар";
 
-                OleDbCommand command = new OleDbCommand(query, cn);
+                DisplayQueryResult(
+                    query,
+                    "Номер".PadRight(20) + "Название".PadRight(20) + "Вес".PadRight(25) + "Размер".PadRight(15) + "Склад".PadRight(10),
+                    new int[] { 30, 25, 25, 25, 10 }
+                    );
 
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-                listBox1.Items.Add("Номер".PadRight(20) + "Название".PadRight(20) + "Вес".PadRight(25) + "Размер".PadRight(15) + "Склад".PadRight(10));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(30) + reader[1].ToString().PadRight(25) + reader[2].ToString().PadRight(25) + reader[3].ToString().PadRight(25) + reader[4].ToString().PadRight(10));
-                }
-                reader.Close();
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonDostavkaDelete_Click(object sender, EventArgs e)
@@ -253,7 +232,7 @@ namespace DBFactory
                 while (reader.Read())
                 {
                     existedPaisient = true;
-
+                    break;
                 }
                 reader.Close();
 
@@ -275,13 +254,14 @@ namespace DBFactory
 
 
 
-                cn.Close();
+
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonBuyerDelete_Click(object sender, EventArgs e)
@@ -324,13 +304,14 @@ namespace DBFactory
 
 
 
-                cn.Close();
+
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonSellerDelete_Click(object sender, EventArgs e)
@@ -351,7 +332,7 @@ namespace DBFactory
                 while (reader.Read())
                 {
                     existedPaisient = true;
-
+                    break;
                 }
                 reader.Close();
 
@@ -370,16 +351,13 @@ namespace DBFactory
                 {
                     MessageBox.Show("Записи не существует");
                 }
-
-
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonSellDelete_Click(object sender, EventArgs e)
@@ -420,15 +398,12 @@ namespace DBFactory
                     MessageBox.Show("Записи не существует");
                 }
 
-
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonSkladDelete_Click(object sender, EventArgs e)
@@ -468,16 +443,13 @@ namespace DBFactory
                 {
                     MessageBox.Show("Записи не существует");
                 }
-
-
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonTovarDelete_Click(object sender, EventArgs e)
@@ -839,14 +811,12 @@ namespace DBFactory
                         listBox1.Items.Add(reader1[0].ToString().PadRight(10) + reader1[1].ToString().PadRight(25) + reader1[2].ToString().PadRight(25) + reader1[3].ToString().PadRight(25) + reader1[4].ToString().PadRight(10));
                     }
                     reader1.Close();
-
-                    cn.Close();
                 }
                 catch (Exception exception)
                 {
-                    cn.Close();
                     MessageBox.Show(exception.Message);
                 }
+                finally { cn.Close(); }
             }
             catch (Exception exception)
             {
