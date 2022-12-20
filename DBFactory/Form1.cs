@@ -40,6 +40,20 @@ namespace DBFactory
             }
         }
 
+        private bool Exists(string query)
+        {
+            OleDbCommand command = new OleDbCommand(query, cn);
+            OleDbDataReader reader = command.ExecuteReader();
+            bool exists = false;
+            while (reader.Read())
+            {
+                exists = true;
+                break;
+            }
+            reader.Close();
+            return exists;
+        }
+
         private void DisplayQueryResult(string query, string titleString, int[] padding)
         {
             OleDbCommand command = new OleDbCommand(query, cn);
@@ -58,22 +72,21 @@ namespace DBFactory
         {
         }
 
-        private void buttonDostavka_Click(object sender, EventArgs e)
+        private void buttonDetal_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
-                string query = "SELECT [Код доставки], [Пункт отправления], [Пункт назначения], [Дата], [Отметка о выполнении] FROM Доставка";
+                string query = "SELECT [Наименование], [Размеры], [Срок поставки], [Вес] FROM Деталь AS d";
 
                 DisplayQueryResult(
                     query,
-                    "Код доставки".PadRight(20) +
-                    "Пункт отправления".PadRight(30) +
-                    "Пункт назначения".PadRight(25) +
-                    "Дата".PadRight(10) +
-                    "Отметка о выполнении".PadRight(10),
-                    new int[] { 35, 40, 20, 40, 10 }
+                    "Наименование".PadRight(20) +
+                    "Размеры".PadRight(30) +
+                    "Срок поставки".PadRight(25) +
+                    "Вес".PadRight(10),
+                    new int[] { 30, 20, 40, 40 }
                     );
 
             }
@@ -87,22 +100,22 @@ namespace DBFactory
             }
         }
 
-        private void buttonBuyer_Click(object sender, EventArgs e)
+        private void buttonIzdelia_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
-                string query = "SELECT [Код покупателя], [Наименование покупателя], [Адрес], [Телефон], [ИНН] FROM Покупатель";
+                string query = "SELECT * FROM Изделие";
 
                 DisplayQueryResult(
                     query,
-                    "Код покупателя".PadRight(20) +
-                    "Имя".PadRight(20) +
-                    "Адрес".PadRight(20) +
-                    "Телефон".PadRight(15) +
-                    "ИНН".PadRight(10),
-                    new int[] { 30, 20, 20, 20, 10 }
+                    "Код изделия".PadRight(10)+
+                    "Наименование".PadRight(20) +
+                    "Назначение".PadRight(20) +
+                    "Вес".PadRight(20) +
+                    "Код технологии".PadRight(15),
+                    new int[] { 10, 30, 30, 20, 10 }
                     );
 
 
@@ -115,7 +128,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonSeller_Click(object sender, EventArgs e)
+        private void buttonTech_Click(object sender, EventArgs e)
         {
             try
             {
@@ -140,7 +153,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonSale_Click(object sender, EventArgs e)
+        private void buttonOtdeli_Click(object sender, EventArgs e)
         {
             try
             {
@@ -169,7 +182,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonSklad_Click(object sender, EventArgs e)
+        private void buttonZavodi_Click(object sender, EventArgs e)
         {
             try
             {
@@ -192,7 +205,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonTovar_Click(object sender, EventArgs e)
+        private void buttonPostavchiki_Click(object sender, EventArgs e)
         {
             try
             {
@@ -224,22 +237,7 @@ namespace DBFactory
 
                 string query2 = "SELECT Доставка.[Код доставки] FROM Доставка WHERE Доставка.[Код доставки]=" + id_pasient.ToString();
 
-
-
-                OleDbCommand command1 = new OleDbCommand(query2, cn);
-                OleDbDataReader reader = command1.ExecuteReader();
-                bool existedPaisient = false;
-                while (reader.Read())
-                {
-                    existedPaisient = true;
-                    break;
-                }
-                reader.Close();
-
-
-
-
-                if (existedPaisient)
+                if (Exists(query2))
                 {
                     string query = "DELETE FROM Доставка WHERE [Код доставки] =" + id_pasient.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
@@ -251,9 +249,6 @@ namespace DBFactory
                 {
                     MessageBox.Show("Записи не существует");
                 }
-
-
-
 
             }
             catch (Exception exception)
@@ -274,22 +269,7 @@ namespace DBFactory
 
                 string query2 = "SELECT Покупатель.[Код покупателя] FROM Покупатель WHERE Покупатель.[Код покупателя]=" + id_pasient.ToString();
 
-
-
-                OleDbCommand command1 = new OleDbCommand(query2, cn);
-                OleDbDataReader reader = command1.ExecuteReader();
-                bool existedPaisient = false;
-                while (reader.Read())
-                {
-                    existedPaisient = true;
-
-                }
-                reader.Close();
-
-
-
-
-                if (existedPaisient)
+                if (Exists(query2))
                 {
                     string query = "DELETE FROM Покупатель WHERE [Код покупателя] =" + id_pasient.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
@@ -301,10 +281,6 @@ namespace DBFactory
                 {
                     MessageBox.Show("Записи не существует");
                 }
-
-
-
-
             }
             catch (Exception exception)
             {
@@ -324,22 +300,7 @@ namespace DBFactory
 
                 string query2 = "SELECT Продавец.[Код продавцп] FROM Продавец WHERE Продавец.[Код продавца]=" + id_pasient.ToString();
 
-
-
-                OleDbCommand command1 = new OleDbCommand(query2, cn);
-                OleDbDataReader reader = command1.ExecuteReader();
-                bool existedPaisient = false;
-                while (reader.Read())
-                {
-                    existedPaisient = true;
-                    break;
-                }
-                reader.Close();
-
-
-
-
-                if (existedPaisient)
+                if (Exists(query2))
                 {
                     string query = "DELETE FROM Продавец WHERE [Код продавца] =" + id_pasient.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
@@ -370,22 +331,7 @@ namespace DBFactory
 
                 string query2 = "SELECT Продажа.[Номер накладной] FROM Продажа WHERE Продажа.[Номер накладной]=" + id_pasient.ToString();
 
-
-
-                OleDbCommand command1 = new OleDbCommand(query2, cn);
-                OleDbDataReader reader = command1.ExecuteReader();
-                bool existedPaisient = false;
-                while (reader.Read())
-                {
-                    existedPaisient = true;
-
-                }
-                reader.Close();
-
-
-
-
-                if (existedPaisient)
+                if (Exists(query2))
                 {
                     string query = "DELETE FROM Продажа WHERE [Номер накладной] =" + id_pasient.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
@@ -416,22 +362,7 @@ namespace DBFactory
 
                 string query2 = "SELECT Склад.[Код склада] FROM Склад WHERE Склад.[Код склада]=" + id_pasient.ToString();
 
-
-
-                OleDbCommand command1 = new OleDbCommand(query2, cn);
-                OleDbDataReader reader = command1.ExecuteReader();
-                bool existedPaisient = false;
-                while (reader.Read())
-                {
-                    existedPaisient = true;
-
-                }
-                reader.Close();
-
-
-
-
-                if (existedPaisient)
+                if (Exists(query2))
                 {
                     string query = "DELETE FROM Склад WHERE [Код склада] =" + id_pasient.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
@@ -463,21 +394,7 @@ namespace DBFactory
                 string query2 = "SELECT Товар.[Код товара] FROM Товар WHERE Товар.[Код товара]=" + id_pasient.ToString();
 
 
-
-                OleDbCommand command1 = new OleDbCommand(query2, cn);
-                OleDbDataReader reader = command1.ExecuteReader();
-                bool existedPaisient = false;
-                while (reader.Read())
-                {
-                    existedPaisient = true;
-
-                }
-                reader.Close();
-
-
-
-
-                if (existedPaisient)
+                if (Exists(query2))
                 {
                     string query = "DELETE FROM Товар WHERE [Код товара] =" + id_pasient.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
@@ -490,14 +407,15 @@ namespace DBFactory
                     MessageBox.Show("Записи не существует");
                 }
 
-
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
 
@@ -527,12 +445,15 @@ namespace DBFactory
                 reader.Close();
 
 
-                cn.Close();
+
             }
             catch (Exception exception)
             {
-                cn.Close();
                 MessageBox.Show(exception.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
 
@@ -560,15 +481,12 @@ namespace DBFactory
                     listBox1.Items.Add(reader[0].ToString().PadRight(15) + reader[1].ToString().PadRight(25) + reader[2].ToString().PadRight(15) + reader[3].ToString().PadRight(15) + reader[4].ToString().PadRight(15) + reader[5].ToString().PadRight(15) + reader[6].ToString().PadRight(15) + "                     " + reader[7].ToString().PadRight(15));
                 }
                 reader.Close();
-
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void buttonSkladInfo_Click(object sender, EventArgs e)
@@ -597,13 +515,14 @@ namespace DBFactory
                 reader.Close();
 
 
-                cn.Close();
+
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void WithoutTovar_Click(object sender, EventArgs e)
@@ -614,30 +533,18 @@ namespace DBFactory
 
 
                 string query = "SELECT * FROM Товар WHERE Вес>1";
-                OleDbCommand command = new OleDbCommand(query, cn);
 
-
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-
-                listBox1.Items.Add("Номер".PadRight(20) + "Название".PadRight(20) + "Вес".PadRight(25) + "Размер".PadRight(15) + "Склад".PadRight(10));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(30) + reader[1].ToString().PadRight(25) + reader[2].ToString().PadRight(25) + reader[3].ToString().PadRight(25) + reader[4].ToString().PadRight(10));
-                }
-                reader.Close();
-
-
-                cn.Close();
+                DisplayQueryResult(
+                    query,
+                    "Номер".PadRight(20) + "Название".PadRight(20) + "Вес".PadRight(25) + "Размер".PadRight(15) + "Склад".PadRight(10),
+                    new int[] { 30, 25, 25, 25, 10 }
+                    );
             }
             catch (Exception exception)
             {
-                cn.Close();
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
         private void WithoutBuyer_Click(object sender, EventArgs e)
@@ -699,12 +606,16 @@ namespace DBFactory
                 reader.Close();
 
 
-                cn.Close();
+
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
 

@@ -123,9 +123,9 @@ namespace DBFactory
             this.buttonDostavka.Name = "buttonDostavka";
             this.buttonDostavka.Size = new System.Drawing.Size(94, 29);
             this.buttonDostavka.TabIndex = 10;
-            this.buttonDostavka.Text = "Доставка";
+            this.buttonDostavka.Text = "Детали";
             this.buttonDostavka.UseVisualStyleBackColor = true;
-            this.buttonDostavka.Click += new System.EventHandler(this.buttonDostavka_Click);
+            this.buttonDostavka.Click += new System.EventHandler(this.buttonDetal_Click);
             // 
             // buttonBuyer
             // 
@@ -133,49 +133,49 @@ namespace DBFactory
             this.buttonBuyer.Name = "buttonBuyer";
             this.buttonBuyer.Size = new System.Drawing.Size(103, 29);
             this.buttonBuyer.TabIndex = 11;
-            this.buttonBuyer.Text = "Покупатель";
+            this.buttonBuyer.Text = "Изделия";
             this.buttonBuyer.UseVisualStyleBackColor = true;
-            this.buttonBuyer.Click += new System.EventHandler(this.buttonBuyer_Click);
+            this.buttonBuyer.Click += new System.EventHandler(this.buttonIzdelia_Click);
             // 
             // buttonSeller
             // 
             this.buttonSeller.Location = new System.Drawing.Point(272, 87);
             this.buttonSeller.Name = "buttonSeller";
-            this.buttonSeller.Size = new System.Drawing.Size(94, 29);
+            this.buttonSeller.Size = new System.Drawing.Size(104, 29);
             this.buttonSeller.TabIndex = 12;
-            this.buttonSeller.Text = "Продавец";
+            this.buttonSeller.Text = "Технологии";
             this.buttonSeller.UseVisualStyleBackColor = true;
-            this.buttonSeller.Click += new System.EventHandler(this.buttonSeller_Click);
+            this.buttonSeller.Click += new System.EventHandler(this.buttonTech_Click);
             // 
             // buttonSale
             // 
-            this.buttonSale.Location = new System.Drawing.Point(372, 87);
+            this.buttonSale.Location = new System.Drawing.Point(382, 87);
             this.buttonSale.Name = "buttonSale";
             this.buttonSale.Size = new System.Drawing.Size(94, 29);
             this.buttonSale.TabIndex = 13;
-            this.buttonSale.Text = "Продажа";
+            this.buttonSale.Text = "Отделы";
             this.buttonSale.UseVisualStyleBackColor = true;
-            this.buttonSale.Click += new System.EventHandler(this.buttonSale_Click);
+            this.buttonSale.Click += new System.EventHandler(this.buttonOtdeli_Click);
             // 
             // buttonSklad
             // 
-            this.buttonSklad.Location = new System.Drawing.Point(472, 87);
+            this.buttonSklad.Location = new System.Drawing.Point(482, 87);
             this.buttonSklad.Name = "buttonSklad";
             this.buttonSklad.Size = new System.Drawing.Size(94, 29);
             this.buttonSklad.TabIndex = 14;
-            this.buttonSklad.Text = "Склад";
+            this.buttonSklad.Text = "Заводы";
             this.buttonSklad.UseVisualStyleBackColor = true;
-            this.buttonSklad.Click += new System.EventHandler(this.buttonSklad_Click);
+            this.buttonSklad.Click += new System.EventHandler(this.buttonZavodi_Click);
             // 
             // buttonTovar
             // 
-            this.buttonTovar.Location = new System.Drawing.Point(572, 87);
+            this.buttonTovar.Location = new System.Drawing.Point(589, 87);
             this.buttonTovar.Name = "buttonTovar";
-            this.buttonTovar.Size = new System.Drawing.Size(94, 29);
+            this.buttonTovar.Size = new System.Drawing.Size(103, 29);
             this.buttonTovar.TabIndex = 15;
-            this.buttonTovar.Text = "Товар";
+            this.buttonTovar.Text = "Поставщики";
             this.buttonTovar.UseVisualStyleBackColor = true;
-            this.buttonTovar.Click += new System.EventHandler(this.buttonTovar_Click);
+            this.buttonTovar.Click += new System.EventHandler(this.buttonPostavchiki_Click);
             // 
             // buttonTovarDelete
             // 
