@@ -52,11 +52,11 @@ namespace DBFactory
             this.buttonBuyerDelete = new System.Windows.Forms.Button();
             this.buttonDostavkaDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonSkladChange = new System.Windows.Forms.Button();
+            this.buttonDetalEdit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.buttonSkladAdd = new System.Windows.Forms.Button();
+            this.buttoDetalAdd = new System.Windows.Forms.Button();
             this.deleteID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.Detal_id_edit = new System.Windows.Forms.TextBox();
@@ -85,10 +85,10 @@ namespace DBFactory
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.Ploshad1 = new System.Windows.Forms.TextBox();
-            this.Number1 = new System.Windows.Forms.TextBox();
-            this.Adres1 = new System.Windows.Forms.TextBox();
-            this.Region1 = new System.Windows.Forms.TextBox();
+            this.Detal_date_add = new System.Windows.Forms.TextBox();
+            this.Detal_weight_add = new System.Windows.Forms.TextBox();
+            this.Detal_size_add = new System.Windows.Forms.TextBox();
+            this.Detal_name_add = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBox1
@@ -247,15 +247,15 @@ namespace DBFactory
             this.label2.TabIndex = 16;
             this.label2.Text = "Удаление данных по id";
             // 
-            // buttonSkladChange
+            // buttonDetalEdit
             // 
-            this.buttonSkladChange.Location = new System.Drawing.Point(617, 347);
-            this.buttonSkladChange.Name = "buttonSkladChange";
-            this.buttonSkladChange.Size = new System.Drawing.Size(94, 29);
-            this.buttonSkladChange.TabIndex = 24;
-            this.buttonSkladChange.Text = "Обновить";
-            this.buttonSkladChange.UseVisualStyleBackColor = true;
-            this.buttonSkladChange.Click += new System.EventHandler(this.buttonDetalEdit_Click);
+            this.buttonDetalEdit.Location = new System.Drawing.Point(617, 347);
+            this.buttonDetalEdit.Name = "buttonDetalEdit";
+            this.buttonDetalEdit.Size = new System.Drawing.Size(94, 29);
+            this.buttonDetalEdit.TabIndex = 24;
+            this.buttonDetalEdit.Text = "Обновить";
+            this.buttonDetalEdit.UseVisualStyleBackColor = true;
+            this.buttonDetalEdit.Click += new System.EventHandler(this.buttonDetalEdit_Click);
             // 
             // label3
             // 
@@ -288,15 +288,15 @@ namespace DBFactory
             this.label6.Text = "Добавление детали";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // buttonSkladAdd
+            // buttoDetalAdd
             // 
-            this.buttonSkladAdd.Location = new System.Drawing.Point(550, 450);
-            this.buttonSkladAdd.Name = "buttonSkladAdd";
-            this.buttonSkladAdd.Size = new System.Drawing.Size(106, 29);
-            this.buttonSkladAdd.TabIndex = 34;
-            this.buttonSkladAdd.Text = "Добавить";
-            this.buttonSkladAdd.UseVisualStyleBackColor = true;
-            this.buttonSkladAdd.Click += new System.EventHandler(this.buttonSkladAdd_Click);
+            this.buttoDetalAdd.Location = new System.Drawing.Point(550, 450);
+            this.buttoDetalAdd.Name = "buttoDetalAdd";
+            this.buttoDetalAdd.Size = new System.Drawing.Size(106, 29);
+            this.buttoDetalAdd.TabIndex = 34;
+            this.buttoDetalAdd.Text = "Добавить";
+            this.buttoDetalAdd.UseVisualStyleBackColor = true;
+            this.buttoDetalAdd.Click += new System.EventHandler(this.buttonDetalAdd_Click);
             // 
             // deleteID
             // 
@@ -517,17 +517,18 @@ namespace DBFactory
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(427, 427);
+            this.label5.Location = new System.Drawing.Point(328, 427);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 16);
             this.label5.TabIndex = 69;
             this.label5.Text = "Вес";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(328, 427);
+            this.label16.Location = new System.Drawing.Point(427, 427);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 16);
             this.label16.TabIndex = 68;
@@ -554,33 +555,33 @@ namespace DBFactory
             this.label18.Text = "Размеры";
             this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
-            // Ploshad1
+            // Detal_date_add
             // 
-            this.Ploshad1.Location = new System.Drawing.Point(427, 450);
-            this.Ploshad1.Name = "Ploshad1";
-            this.Ploshad1.Size = new System.Drawing.Size(94, 27);
-            this.Ploshad1.TabIndex = 64;
+            this.Detal_date_add.Location = new System.Drawing.Point(427, 450);
+            this.Detal_date_add.Name = "Detal_date_add";
+            this.Detal_date_add.Size = new System.Drawing.Size(94, 27);
+            this.Detal_date_add.TabIndex = 64;
             // 
-            // Number1
+            // Detal_weight_add
             // 
-            this.Number1.Location = new System.Drawing.Point(328, 450);
-            this.Number1.Name = "Number1";
-            this.Number1.Size = new System.Drawing.Size(94, 27);
-            this.Number1.TabIndex = 63;
+            this.Detal_weight_add.Location = new System.Drawing.Point(328, 450);
+            this.Detal_weight_add.Name = "Detal_weight_add";
+            this.Detal_weight_add.Size = new System.Drawing.Size(94, 27);
+            this.Detal_weight_add.TabIndex = 63;
             // 
-            // Adres1
+            // Detal_size_add
             // 
-            this.Adres1.Location = new System.Drawing.Point(227, 450);
-            this.Adres1.Name = "Adres1";
-            this.Adres1.Size = new System.Drawing.Size(94, 27);
-            this.Adres1.TabIndex = 62;
+            this.Detal_size_add.Location = new System.Drawing.Point(227, 450);
+            this.Detal_size_add.Name = "Detal_size_add";
+            this.Detal_size_add.Size = new System.Drawing.Size(94, 27);
+            this.Detal_size_add.TabIndex = 62;
             // 
-            // Region1
+            // Detal_name_add
             // 
-            this.Region1.Location = new System.Drawing.Point(126, 450);
-            this.Region1.Name = "Region1";
-            this.Region1.Size = new System.Drawing.Size(94, 27);
-            this.Region1.TabIndex = 61;
+            this.Detal_name_add.Location = new System.Drawing.Point(126, 450);
+            this.Detal_name_add.Name = "Detal_name_add";
+            this.Detal_name_add.Size = new System.Drawing.Size(94, 27);
+            this.Detal_name_add.TabIndex = 61;
             // 
             // Form1
             // 
@@ -591,10 +592,10 @@ namespace DBFactory
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.Ploshad1);
-            this.Controls.Add(this.Number1);
-            this.Controls.Add(this.Adres1);
-            this.Controls.Add(this.Region1);
+            this.Controls.Add(this.Detal_date_add);
+            this.Controls.Add(this.Detal_weight_add);
+            this.Controls.Add(this.Detal_size_add);
+            this.Controls.Add(this.Detal_name_add);
             this.Controls.Add(this.WithoutBuyer);
             this.Controls.Add(this.WithoutTovar);
             this.Controls.Add(this.WithoutDostavka);
@@ -619,10 +620,10 @@ namespace DBFactory
             this.Controls.Add(this.Detal_id_edit);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.deleteID);
-            this.Controls.Add(this.buttonSkladAdd);
+            this.Controls.Add(this.buttoDetalAdd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.buttonSkladChange);
+            this.Controls.Add(this.buttonDetalEdit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonTovarDelete);
             this.Controls.Add(this.buttonSkladDelete);
@@ -664,11 +665,11 @@ namespace DBFactory
         private Button buttonBuyerDelete;
         private Button buttonDostavkaDelete;
         private Label label2;
-        private Button buttonSkladChange;
+        private Button buttonDetalEdit;
         private Label label3;
         private Label label4;
         private Label label6;
-        private Button buttonSkladAdd;
+        private Button buttoDetalAdd;
         private TextBox deleteID;
         private Label label7;
         private TextBox Detal_id_edit;
@@ -697,10 +698,10 @@ namespace DBFactory
         private Label label16;
         private Label label17;
         private Label label18;
-        private TextBox Ploshad1;
-        private TextBox Number1;
-        private TextBox Adres1;
-        private TextBox Region1;
+        private TextBox Detal_date_add;
+        private TextBox Detal_weight_add;
+        private TextBox Detal_size_add;
+        private TextBox Detal_name_add;
     }
 }
 
