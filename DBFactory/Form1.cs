@@ -82,12 +82,12 @@ namespace DBFactory
 
                 DisplayQueryResult(
                     query,
-                    "Код".PadRight(10)+
+                    "Код".PadRight(10) +
                     "Наименование".PadRight(20) +
                     "Размеры".PadRight(30) +
                     "Срок поставки".PadRight(25) +
                     "Вес".PadRight(10),
-                    new int[] { 10,30, 20, 40, 40}
+                    new int[] { 10, 30, 20, 40, 40 }
                     );
 
             }
@@ -630,67 +630,63 @@ namespace DBFactory
             }
         }
 
-        private void buttonSkladChange_Click(object sender, EventArgs e)
+        private void buttonDetalEdit_Click(object sender, EventArgs e)
         {
             try
             {
 
                 cn.Open();
+                
+                int id = Convert.ToInt32(Detal_id_edit.Text);
+                string name = Convert.ToString(Detal_name_edit.Text);
+                int size = Convert.ToInt32(Detal_size_edit.Text);
+                int weight = Convert.ToInt32(Detal_weight_edit.Text);
+                DateTime date = Convert.ToDateTime(Detal_date_edit.Text);
 
-                int id = Convert.ToInt32(SkladID.Text);
-                string region = Convert.ToString(Region.Text);
-                string adress = Convert.ToString(Adres.Text);
-                int number = Convert.ToInt32(Number.Text);
-                int size = Convert.ToInt32(Ploshad.Text);
+                string query = "UPDATE Деталь SET"
+                    + " Наименование = \"" + name
+                    + "\", [Срок Поставки] =@date"
+                    + ", Вес = " + weight
+                    + ", Размеры = " + size
+                    + ",[Код поставщика]=1 "
+                    + " WHERE [Код детали] =" + id;
+               
 
-                string query = "UPDATE Склад SET"
-                    + " Регион = \"" + region
-                    + "\", Адрес = \"" + adress
-                    + "\", Телефон = " + number
-                    + ", Площадь = " + size
-                    + " WHERE [Код склада] =" + id;
-                Console.WriteLine(query);
-                OleDbCommand command = new OleDbCommand(query, cn);
 
+
+                OleDbCommand command = new OleDbCommand();
+                command.CommandText = query;
+                command.Connection = cn;
+                command.Parameters.Add("@date", OleDbType.Date).Value = date;
                 command.ExecuteNonQuery();
                 MessageBox.Show("Данные о складе обновлены");
 
                 cn.Close();
 
-                try
-                {
-                    cn.Open();
 
-                    string query1 = "SELECT [Код склада], [Регион], [Адрес], [Телефон], [Площадь] FROM Склад";
+                cn.Open();
 
-                    OleDbCommand command1 = new OleDbCommand(query1, cn);
+                string query1 = "SELECT * FROM Деталь AS d";
 
-                    OleDbDataReader reader1 = command1.ExecuteReader();
+                DisplayQueryResult(
+                    query1,
+                    "Код".PadRight(10) +
+                    "Наименование".PadRight(20) +
+                    "Размеры".PadRight(30) +
+                    "Срок поставки".PadRight(25) +
+                    "Вес".PadRight(10),
+                    new int[] { 10, 30, 20, 40, 40 }
+                    );
 
-                    listBox1.Items.Clear();
-                    listBox1.Items.Add("Номер".PadRight(10) + "Регион".PadRight(29) + "Адрес".PadRight(25) + "Телефон".PadRight(25) + "Площадь".PadRight(10));
-                    listBox1.Items.Add("");
 
-                    while (reader1.Read())
-                    {
-                        listBox1.Items.Add(reader1[0].ToString().PadRight(10) + reader1[1].ToString().PadRight(25) + reader1[2].ToString().PadRight(25) + reader1[3].ToString().PadRight(25) + reader1[4].ToString().PadRight(10));
-                    }
-                    reader1.Close();
-
-                    cn.Close();
-                }
-                catch (Exception exception)
-                {
-                    cn.Close();
-                    MessageBox.Show(exception.Message);
-                }
 
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); };
 
         }
 
@@ -748,6 +744,21 @@ namespace DBFactory
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }

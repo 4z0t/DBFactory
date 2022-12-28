@@ -59,11 +59,11 @@ namespace DBFactory
             this.buttonSkladAdd = new System.Windows.Forms.Button();
             this.deleteID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.SkladID = new System.Windows.Forms.TextBox();
-            this.Region = new System.Windows.Forms.TextBox();
-            this.Adres = new System.Windows.Forms.TextBox();
-            this.Number = new System.Windows.Forms.TextBox();
-            this.Ploshad = new System.Windows.Forms.TextBox();
+            this.Detal_id_edit = new System.Windows.Forms.TextBox();
+            this.Detal_name_edit = new System.Windows.Forms.TextBox();
+            this.Detal_size_edit = new System.Windows.Forms.TextBox();
+            this.Detal_weight_edit = new System.Windows.Forms.TextBox();
+            this.Detal_date_edit = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -255,17 +255,17 @@ namespace DBFactory
             this.buttonSkladChange.TabIndex = 24;
             this.buttonSkladChange.Text = "Обновить";
             this.buttonSkladChange.UseVisualStyleBackColor = true;
-            this.buttonSkladChange.Click += new System.EventHandler(this.buttonSkladChange_Click);
+            this.buttonSkladChange.Click += new System.EventHandler(this.buttonDetalEdit_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(238, 281);
+            this.label3.Location = new System.Drawing.Point(285, 276);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(293, 31);
+            this.label3.Size = new System.Drawing.Size(212, 31);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Изменение данных склада";
+            this.label3.Text = "Изменение Детали";
             // 
             // label4
             // 
@@ -285,11 +285,12 @@ namespace DBFactory
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(219, 31);
             this.label6.TabIndex = 32;
-            this.label6.Text = "Добавление склада";
+            this.label6.Text = "Добавление детали";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // buttonSkladAdd
             // 
-            this.buttonSkladAdd.Location = new System.Drawing.Point(560, 450);
+            this.buttonSkladAdd.Location = new System.Drawing.Point(550, 450);
             this.buttonSkladAdd.Name = "buttonSkladAdd";
             this.buttonSkladAdd.Size = new System.Drawing.Size(106, 29);
             this.buttonSkladAdd.TabIndex = 34;
@@ -315,90 +316,91 @@ namespace DBFactory
             this.label7.Text = "Код для удаления";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // SkladID
+            // Detal_id_edit
             // 
-            this.SkladID.Location = new System.Drawing.Point(72, 348);
-            this.SkladID.Name = "SkladID";
-            this.SkladID.Size = new System.Drawing.Size(94, 27);
-            this.SkladID.TabIndex = 37;
+            this.Detal_id_edit.Location = new System.Drawing.Point(100, 348);
+            this.Detal_id_edit.Name = "Detal_id_edit";
+            this.Detal_id_edit.Size = new System.Drawing.Size(94, 27);
+            this.Detal_id_edit.TabIndex = 37;
             // 
-            // Region
+            // Detal_name_edit
             // 
-            this.Region.Location = new System.Drawing.Point(171, 348);
-            this.Region.Name = "Region";
-            this.Region.Size = new System.Drawing.Size(94, 27);
-            this.Region.TabIndex = 38;
+            this.Detal_name_edit.Location = new System.Drawing.Point(199, 348);
+            this.Detal_name_edit.Name = "Detal_name_edit";
+            this.Detal_name_edit.Size = new System.Drawing.Size(94, 27);
+            this.Detal_name_edit.TabIndex = 38;
             // 
-            // Adres
+            // Detal_size_edit
             // 
-            this.Adres.Location = new System.Drawing.Point(272, 348);
-            this.Adres.Name = "Adres";
-            this.Adres.Size = new System.Drawing.Size(94, 27);
-            this.Adres.TabIndex = 39;
+            this.Detal_size_edit.Location = new System.Drawing.Point(300, 348);
+            this.Detal_size_edit.Name = "Detal_size_edit";
+            this.Detal_size_edit.Size = new System.Drawing.Size(94, 27);
+            this.Detal_size_edit.TabIndex = 39;
             // 
-            // Number
+            // Detal_weight_edit
             // 
-            this.Number.Location = new System.Drawing.Point(373, 348);
-            this.Number.Name = "Number";
-            this.Number.Size = new System.Drawing.Size(94, 27);
-            this.Number.TabIndex = 40;
+            this.Detal_weight_edit.Location = new System.Drawing.Point(401, 348);
+            this.Detal_weight_edit.Name = "Detal_weight_edit";
+            this.Detal_weight_edit.Size = new System.Drawing.Size(94, 27);
+            this.Detal_weight_edit.TabIndex = 40;
             // 
-            // Ploshad
+            // Detal_date_edit
             // 
-            this.Ploshad.Location = new System.Drawing.Point(472, 348);
-            this.Ploshad.Name = "Ploshad";
-            this.Ploshad.Size = new System.Drawing.Size(94, 27);
-            this.Ploshad.TabIndex = 41;
+            this.Detal_date_edit.Location = new System.Drawing.Point(500, 348);
+            this.Detal_date_edit.Name = "Detal_date_edit";
+            this.Detal_date_edit.Size = new System.Drawing.Size(94, 27);
+            this.Detal_date_edit.TabIndex = 41;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(81, 325);
+            this.label8.Location = new System.Drawing.Point(109, 325);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 16);
+            this.label8.Size = new System.Drawing.Size(64, 16);
             this.label8.TabIndex = 42;
-            this.label8.Text = "Номер склада";
+            this.label8.Text = "Код детали";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(299, 325);
+            this.label9.Location = new System.Drawing.Point(301, 325);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 16);
+            this.label9.Size = new System.Drawing.Size(44, 16);
             this.label9.TabIndex = 43;
-            this.label9.Text = "Адрес";
+            this.label9.Text = "Размер";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(198, 325);
+            this.label10.Location = new System.Drawing.Point(199, 325);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 16);
+            this.label10.Size = new System.Drawing.Size(82, 16);
             this.label10.TabIndex = 44;
-            this.label10.Text = "Регион";
+            this.label10.Text = "Наименование";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(390, 325);
+            this.label11.Location = new System.Drawing.Point(406, 325);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 16);
+            this.label11.Size = new System.Drawing.Size(25, 16);
             this.label11.TabIndex = 45;
-            this.label11.Text = "Телефон";
+            this.label11.Text = "Вес";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(491, 325);
+            this.label12.Location = new System.Drawing.Point(500, 325);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 16);
+            this.label12.Size = new System.Drawing.Size(81, 16);
             this.label12.TabIndex = 46;
-            this.label12.Text = "Площадь";
+            this.label12.Text = "Срок поставки";
             // 
             // buttonTovarInfo
             // 
@@ -515,41 +517,42 @@ namespace DBFactory
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(446, 427);
+            this.label5.Location = new System.Drawing.Point(427, 427);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 16);
+            this.label5.Size = new System.Drawing.Size(25, 16);
             this.label5.TabIndex = 69;
-            this.label5.Text = "Площадь";
+            this.label5.Text = "Вес";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(345, 427);
+            this.label16.Location = new System.Drawing.Point(328, 427);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(53, 16);
+            this.label16.Size = new System.Drawing.Size(81, 16);
             this.label16.TabIndex = 68;
-            this.label16.Text = "Телефон";
+            this.label16.Text = "Срок поставки";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(153, 427);
+            this.label17.Location = new System.Drawing.Point(126, 427);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 16);
+            this.label17.Size = new System.Drawing.Size(82, 16);
             this.label17.TabIndex = 67;
-            this.label17.Text = "Регион";
+            this.label17.Text = "Наименование";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(254, 427);
+            this.label18.Location = new System.Drawing.Point(227, 427);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(37, 16);
+            this.label18.Size = new System.Drawing.Size(52, 16);
             this.label18.TabIndex = 66;
-            this.label18.Text = "Адрес";
+            this.label18.Text = "Размеры";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // Ploshad1
             // 
@@ -609,11 +612,11 @@ namespace DBFactory
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.Ploshad);
-            this.Controls.Add(this.Number);
-            this.Controls.Add(this.Adres);
-            this.Controls.Add(this.Region);
-            this.Controls.Add(this.SkladID);
+            this.Controls.Add(this.Detal_date_edit);
+            this.Controls.Add(this.Detal_weight_edit);
+            this.Controls.Add(this.Detal_size_edit);
+            this.Controls.Add(this.Detal_name_edit);
+            this.Controls.Add(this.Detal_id_edit);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.deleteID);
             this.Controls.Add(this.buttonSkladAdd);
@@ -668,11 +671,11 @@ namespace DBFactory
         private Button buttonSkladAdd;
         private TextBox deleteID;
         private Label label7;
-        private TextBox SkladID;
-        private TextBox Region;
-        private TextBox Adres;
-        private TextBox Number;
-        private TextBox Ploshad;
+        private TextBox Detal_id_edit;
+        private TextBox Detal_name_edit;
+        private TextBox Detal_size_edit;
+        private TextBox Detal_weight_edit;
+        private TextBox Detal_date_edit;
         private Label label8;
         private Label label9;
         private Label label10;
