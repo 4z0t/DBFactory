@@ -636,28 +636,53 @@ namespace DBFactory
             {
 
                 cn.Open();
-                
-                int id = Convert.ToInt32(Detal_id_edit.Text);
-                string name = Convert.ToString(Detal_name_edit.Text);
-                int size = Convert.ToInt32(Detal_size_edit.Text);
-                int weight = Convert.ToInt32(Detal_weight_edit.Text);
-                DateTime date = Convert.ToDateTime(Detal_date_edit.Text);
 
-                string query = "UPDATE Деталь SET"
-                    + " Наименование = \"" + name
-                    + "\", [Срок Поставки] =@date"
-                    + ", Вес = " + weight
-                    + ", Размеры = " + size
-                    + ",[Код поставщика]=1 "
-                    + " WHERE [Код детали] =" + id;
-               
+
+
+
+                int id = Convert.ToInt32(Detal_id_edit.Text);
+                string query = "UPDATE Деталь SET";
+                bool hasDate = false;
+                DateTime date = DateTime.Now;
+                if (Detal_name_edit.Text.Length != 0)
+                {
+                    string name = Convert.ToString(Detal_name_edit.Text);
+                    query += " Наименование = \"" + name + "\",";
+                }
+
+                if (Detal_size_edit.Text.Length != 0)
+                {
+                    int size = Convert.ToInt32(Detal_size_edit.Text);
+                    query += "Размеры = " + size + ",";
+
+                }
+                if (Detal_weight_edit.Text.Length != 0)
+                {
+                    int weight = Convert.ToInt32(Detal_weight_edit.Text);
+
+                    query += "Вес = " + weight + ",";
+
+                }
+                if (Detal_date_edit.Text.Length != 0)
+                {
+                    date = Convert.ToDateTime(Detal_date_edit.Text);
+                    hasDate = true;
+                    query += "[Срок Поставки] =@date,";
+
+                }
+
+
+                query += " [Код поставщика]=1 "
+              + " WHERE [Код детали] =" + id;
+
 
 
 
                 OleDbCommand command = new OleDbCommand();
                 command.CommandText = query;
                 command.Connection = cn;
-                command.Parameters.Add("@date", OleDbType.Date).Value = date;
+                if (hasDate)
+                    command.Parameters.Add("@date", OleDbType.Date).Value = date;
                 command.ExecuteNonQuery();
                 MessageBox.Show("Данные о складе обновлены");
 
