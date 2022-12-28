@@ -418,9 +418,9 @@ namespace DBFactory
             this.buttonSellInfo.Name = "buttonSellInfo";
             this.buttonSellInfo.Size = new System.Drawing.Size(256, 71);
             this.buttonSellInfo.TabIndex = 48;
-            this.buttonSellInfo.Text = "Список продаж по минимальной цене";
+            this.buttonSellInfo.Text = "Люди";
             this.buttonSellInfo.UseVisualStyleBackColor = true;
-            this.buttonSellInfo.Click += new System.EventHandler(this.buttonSellInfo_Click);
+            this.buttonSellInfo.Click += new System.EventHandler(this.buttonPeople_Click);
             // 
             // TovarGiveInfoID
             // 

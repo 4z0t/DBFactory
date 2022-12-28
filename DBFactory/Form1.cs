@@ -442,7 +442,7 @@ namespace DBFactory
                     "Наименование детали",
                     new int[] { 30, 30, 30, 30 }
                     );
-          
+
 
             }
             catch (Exception exception)
@@ -455,30 +455,19 @@ namespace DBFactory
             }
         }
 
-        private void buttonSellInfo_Click(object sender, EventArgs e)
+        private void buttonPeople_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
-                int tip = Convert.ToInt32(SellGiveInfoMinPrice.Text);
-                string query = "SELECT * FROM Продажа WHERE Цена>=@tip";
-                OleDbCommand command = new OleDbCommand(query, cn);
+                string query = "(SELECT [ФИО директора] FROM Завод) UNION (SELECT [ФИО Директора] FROM Поставщик) UNION (SELECT [ФИО начальника] FROM Отдел) UNION (SELECT Разработчик FROM [Технология изготовления]);";
+                DisplayQueryResult(
+                    query,
+                    "ФИО",
+                    new int[] { 0 }
 
-                command.Parameters.AddWithValue("@tip", tip);
-
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-
-                listBox1.Items.Add("Номер".PadRight(10) + "Цена".PadRight(15) + "Количество".PadRight(15) + "Дата".PadRight(35) + "Покупатель".PadRight(10) + "Продавец".PadRight(10) + "Доставка".PadRight(10) + "Товар".PadRight(15));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(15) + reader[1].ToString().PadRight(25) + reader[2].ToString().PadRight(15) + reader[3].ToString().PadRight(15) + reader[4].ToString().PadRight(15) + reader[5].ToString().PadRight(15) + reader[6].ToString().PadRight(15) + "                     " + reader[7].ToString().PadRight(15));
-                }
-                reader.Close();
+                    );
             }
             catch (Exception exception)
             {
