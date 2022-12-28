@@ -272,13 +272,13 @@ namespace DBFactory
             {
                 cn.Open();
 
-                int id_pasient = Convert.ToInt32(deleteID.Text);
+                int entryId = Convert.ToInt32(deleteID.Text);
 
-                string query2 = "SELECT Покупатель.[Код покупателя] FROM Покупатель WHERE Покупатель.[Код покупателя]=" + id_pasient.ToString();
+                string query2 = "SELECT Iz.[Код изделия] FROM Изделие AS Iz WHERE Iz.[Код изделия]=" + entryId.ToString();
 
                 if (Exists(query2))
                 {
-                    string query = "DELETE FROM Покупатель WHERE [Код покупателя] =" + id_pasient.ToString();
+                    string query = "DELETE FROM Изделие WHERE [Код изделия] =" + entryId.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
 
                     command.ExecuteNonQuery();
@@ -303,13 +303,13 @@ namespace DBFactory
             {
                 cn.Open();
 
-                int id_pasient = Convert.ToInt32(deleteID.Text);
+                int entryId = Convert.ToInt32(deleteID.Text);
 
-                string query2 = "SELECT Продавец.[Код продавцп] FROM Продавец WHERE Продавец.[Код продавца]=" + id_pasient.ToString();
+                string query2 = "SELECT TI.[Код технологии] FROM [Технология изготовления] AS TI WHERE TI.[Код технологии]=" + entryId.ToString();
 
                 if (Exists(query2))
                 {
-                    string query = "DELETE FROM Продавец WHERE [Код продавца] =" + id_pasient.ToString();
+                    string query = "DELETE FROM [Технология изготовления] WHERE [Код технологии] =" + entryId.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
 
                     command.ExecuteNonQuery();
@@ -334,13 +334,13 @@ namespace DBFactory
             {
                 cn.Open();
 
-                int id_pasient = Convert.ToInt32(deleteID.Text);
+                int entryId = Convert.ToInt32(deleteID.Text);
 
-                string query2 = "SELECT Продажа.[Номер накладной] FROM Продажа WHERE Продажа.[Номер накладной]=" + id_pasient.ToString();
+                string query2 = "SELECT ot.[Номер отдела] FROM Отдел AS ot WHERE ot.[Номер отдела]=" + entryId.ToString();
 
                 if (Exists(query2))
                 {
-                    string query = "DELETE FROM Продажа WHERE [Номер накладной] =" + id_pasient.ToString();
+                    string query = "DELETE FROM Отдел WHERE [Номер отдела] =" + entryId.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
 
                     command.ExecuteNonQuery();
@@ -365,13 +365,13 @@ namespace DBFactory
             {
                 cn.Open();
 
-                int id_pasient = Convert.ToInt32(deleteID.Text);
+                int entryId = Convert.ToInt32(deleteID.Text);
 
-                string query2 = "SELECT Склад.[Код склада] FROM Склад WHERE Склад.[Код склада]=" + id_pasient.ToString();
+                string query2 = "SELECT za.[Номер завода] FROM Завод AS za WHERE za.[Номер завода]=" + entryId.ToString();
 
                 if (Exists(query2))
                 {
-                    string query = "DELETE FROM Склад WHERE [Код склада] =" + id_pasient.ToString();
+                    string query = "DELETE FROM Завод WHERE [Номер завода] =" + entryId.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
 
                     command.ExecuteNonQuery();
@@ -398,12 +398,12 @@ namespace DBFactory
 
                 int id_pasient = Convert.ToInt32(deleteID.Text);
 
-                string query2 = "SELECT Товар.[Код товара] FROM Товар WHERE Товар.[Код товара]=" + id_pasient.ToString();
+                string query2 = "SELECT po.[Код поставщика] FROM Поставщик AS po WHERE po.[Код поставщика]=" + id_pasient.ToString();
 
 
                 if (Exists(query2))
                 {
-                    string query = "DELETE FROM Товар WHERE [Код товара] =" + id_pasient.ToString();
+                    string query = "DELETE FROM Поставщик WHERE [Код поставщика] =" + id_pasient.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
 
                     command.ExecuteNonQuery();
