@@ -71,12 +71,8 @@ namespace DBFactory
             this.label12 = new System.Windows.Forms.Label();
             this.buttonTovarInfo = new System.Windows.Forms.Button();
             this.buttonSellInfo = new System.Windows.Forms.Button();
-            this.TovarGiveInfoID = new System.Windows.Forms.TextBox();
-            this.SellGiveInfoMinPrice = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.IzdelieMinWeight = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.SkladGiveInfoRegion = new System.Windows.Forms.TextBox();
             this.buttonSkladInfo = new System.Windows.Forms.Button();
             this.WithoutBuyer = new System.Windows.Forms.Button();
             this.WithoutTovar = new System.Windows.Forms.Button();
@@ -414,7 +410,7 @@ namespace DBFactory
             // 
             // buttonSellInfo
             // 
-            this.buttonSellInfo.Location = new System.Drawing.Point(265, 604);
+            this.buttonSellInfo.Location = new System.Drawing.Point(265, 701);
             this.buttonSellInfo.Name = "buttonSellInfo";
             this.buttonSellInfo.Size = new System.Drawing.Size(256, 71);
             this.buttonSellInfo.TabIndex = 48;
@@ -422,29 +418,12 @@ namespace DBFactory
             this.buttonSellInfo.UseVisualStyleBackColor = true;
             this.buttonSellInfo.Click += new System.EventHandler(this.buttonPeople_Click);
             // 
-            // TovarGiveInfoID
+            // IzdelieMinWeight
             // 
-            this.TovarGiveInfoID.Location = new System.Drawing.Point(59, 564);
-            this.TovarGiveInfoID.Name = "TovarGiveInfoID";
-            this.TovarGiveInfoID.Size = new System.Drawing.Size(137, 27);
-            this.TovarGiveInfoID.TabIndex = 50;
-            // 
-            // SellGiveInfoMinPrice
-            // 
-            this.SellGiveInfoMinPrice.Location = new System.Drawing.Point(327, 564);
-            this.SellGiveInfoMinPrice.Name = "SellGiveInfoMinPrice";
-            this.SellGiveInfoMinPrice.Size = new System.Drawing.Size(137, 27);
-            this.SellGiveInfoMinPrice.TabIndex = 51;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(105, 535);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 16);
-            this.label13.TabIndex = 52;
-            this.label13.Text = "Размер";
+            this.IzdelieMinWeight.Location = new System.Drawing.Point(327, 564);
+            this.IzdelieMinWeight.Name = "IzdelieMinWeight";
+            this.IzdelieMinWeight.Size = new System.Drawing.Size(137, 27);
+            this.IzdelieMinWeight.TabIndex = 51;
             // 
             // label14
             // 
@@ -452,26 +431,10 @@ namespace DBFactory
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label14.Location = new System.Drawing.Point(343, 535);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 16);
+            this.label14.Size = new System.Drawing.Size(99, 16);
             this.label14.TabIndex = 53;
-            this.label14.Text = "Минимальная цена";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(636, 535);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(42, 16);
-            this.label15.TabIndex = 56;
-            this.label15.Text = "Регион";
-            // 
-            // SkladGiveInfoRegion
-            // 
-            this.SkladGiveInfoRegion.Location = new System.Drawing.Point(589, 564);
-            this.SkladGiveInfoRegion.Name = "SkladGiveInfoRegion";
-            this.SkladGiveInfoRegion.Size = new System.Drawing.Size(137, 27);
-            this.SkladGiveInfoRegion.TabIndex = 55;
+            this.label14.Text = "Минимальный вес";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // buttonSkladInfo
             // 
@@ -479,9 +442,9 @@ namespace DBFactory
             this.buttonSkladInfo.Name = "buttonSkladInfo";
             this.buttonSkladInfo.Size = new System.Drawing.Size(256, 71);
             this.buttonSkladInfo.TabIndex = 54;
-            this.buttonSkladInfo.Text = "Склады по региону";
+            this.buttonSkladInfo.Text = "Детали по убыванию размера";
             this.buttonSkladInfo.UseVisualStyleBackColor = true;
-            this.buttonSkladInfo.Click += new System.EventHandler(this.buttonSkladInfo_Click);
+            this.buttonSkladInfo.Click += new System.EventHandler(this.buttonDetalDescSize_Click);
             // 
             // WithoutBuyer
             // 
@@ -489,19 +452,19 @@ namespace DBFactory
             this.WithoutBuyer.Name = "WithoutBuyer";
             this.WithoutBuyer.Size = new System.Drawing.Size(256, 71);
             this.WithoutBuyer.TabIndex = 59;
-            this.WithoutBuyer.Text = "Телефоны покупателей";
+            this.WithoutBuyer.Text = "Максимальный вес деталей у поставщиков";
             this.WithoutBuyer.UseVisualStyleBackColor = true;
-            this.WithoutBuyer.Click += new System.EventHandler(this.WithoutBuyer_Click);
+            this.WithoutBuyer.Click += new System.EventHandler(this.buttonMaxWeightPostavchik);
             // 
             // WithoutTovar
             // 
-            this.WithoutTovar.Location = new System.Drawing.Point(265, 701);
+            this.WithoutTovar.Location = new System.Drawing.Point(262, 604);
             this.WithoutTovar.Name = "WithoutTovar";
             this.WithoutTovar.Size = new System.Drawing.Size(256, 71);
             this.WithoutTovar.TabIndex = 58;
-            this.WithoutTovar.Text = "Товары весом больше 1кг";
+            this.WithoutTovar.Text = "Изделия с заданным минимальным весом";
             this.WithoutTovar.UseVisualStyleBackColor = true;
-            this.WithoutTovar.Click += new System.EventHandler(this.WithoutTovar_Click);
+            this.WithoutTovar.Click += new System.EventHandler(this.buttonIzdelieMinWeight_Click);
             // 
             // WithoutDostavka
             // 
@@ -509,9 +472,9 @@ namespace DBFactory
             this.WithoutDostavka.Name = "WithoutDostavka";
             this.WithoutDostavka.Size = new System.Drawing.Size(256, 71);
             this.WithoutDostavka.TabIndex = 57;
-            this.WithoutDostavka.Text = "Даты доставок";
+            this.WithoutDostavka.Text = "Общий вес изделий по заводам";
             this.WithoutDostavka.UseVisualStyleBackColor = true;
-            this.WithoutDostavka.Click += new System.EventHandler(this.WithoutDostavka_Click);
+            this.WithoutDostavka.Click += new System.EventHandler(this.buttonZavodTotalWeight_Click);
             // 
             // label5
             // 
@@ -599,13 +562,9 @@ namespace DBFactory
             this.Controls.Add(this.WithoutBuyer);
             this.Controls.Add(this.WithoutTovar);
             this.Controls.Add(this.WithoutDostavka);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.SkladGiveInfoRegion);
             this.Controls.Add(this.buttonSkladInfo);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.SellGiveInfoMinPrice);
-            this.Controls.Add(this.TovarGiveInfoID);
+            this.Controls.Add(this.IzdelieMinWeight);
             this.Controls.Add(this.buttonSellInfo);
             this.Controls.Add(this.buttonTovarInfo);
             this.Controls.Add(this.label12);
@@ -684,12 +643,8 @@ namespace DBFactory
         private Label label12;
         private Button buttonTovarInfo;
         private Button buttonSellInfo;
-        private TextBox TovarGiveInfoID;
-        private TextBox SellGiveInfoMinPrice;
-        private Label label13;
+        private TextBox IzdelieMinWeight;
         private Label label14;
-        private Label label15;
-        private TextBox SkladGiveInfoRegion;
         private Button buttonSkladInfo;
         private Button WithoutBuyer;
         private Button WithoutTovar;

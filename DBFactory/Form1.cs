@@ -15,9 +15,9 @@ namespace DBFactory
 {
     public partial class Form1 : Form
     {
-        const string PATH = "D:\\Git\\DBFactory\\DBFactory\\6.accdb";
+        public const string PATH = "D:\\Git\\DBFactory\\DBFactory\\6.accdb";
 
-        OleDbConnection cn;
+        private OleDbConnection cn;
         public Form1()
         {
             cn = new OleDbConnection(
@@ -476,30 +476,15 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonSkladInfo_Click(object sender, EventArgs e)
+        private void buttonDetalDescSize_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
-                string tip = Convert.ToString(SkladGiveInfoRegion.Text);
-                string query = "SELECT * FROM Склад WHERE Регион=@tip";
-                OleDbCommand command = new OleDbCommand(query, cn);
 
-                command.Parameters.AddWithValue("@tip", tip);
-
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-
-                listBox1.Items.Add("Номер".PadRight(10) + "Регион".PadRight(29) + "Адрес".PadRight(25) + "Телефон".PadRight(25) + "Площадь".PadRight(10));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(10) + reader[1].ToString().PadRight(25) + reader[2].ToString().PadRight(25) + reader[3].ToString().PadRight(25) + reader[4].ToString().PadRight(10));
-                }
-                reader.Close();
+                string query = "SELECT Деталь.Наименование, Деталь.Размеры FROM Деталь ORDER BY Деталь.Размеры DESC;";
+                DisplayQueryResult(query, "Наименование".PadRight(30) + "Размер", new int[] { 30, 20 });
 
 
 
@@ -512,23 +497,22 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void WithoutTovar_Click(object sender, EventArgs e)
+        private void buttonIzdelieMinWeight_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
-
-                string query = "SELECT * FROM Товар WHERE Вес>1";
+                int weight = Convert.ToInt32(IzdelieMinWeight.Text);
+                string query = "SELECT Изделие.[Наименование изделия], Изделие.[Вес изделия], Изделие.[Назначение изделия] FROM Изделие WHERE (((Изделие.[Вес изделия])>" + weight + ")) ORDER BY Изделие.[Вес изделия] DESC;";
 
                 DisplayQueryResult(
                     query,
-                    "Номер".PadRight(20) +
+
                     "Название".PadRight(20) +
                     "Вес".PadRight(25) +
-                    "Размер".PadRight(15) +
-                    "Склад".PadRight(10),
-                    new int[] { 30, 25, 25, 25, 10 }
+                    "Назначение".PadRight(15),
+                    new int[] { 30, 25, 25 }
                     );
             }
             catch (Exception exception)
@@ -538,64 +522,50 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void WithoutBuyer_Click(object sender, EventArgs e)
+        private void buttonMaxWeightPostavchik(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
 
-                string query = "SELECT [Код покупателя], [Телефон] FROM Покупатель";
-                OleDbCommand command = new OleDbCommand(query, cn);
+                string query = "SELECT p.Наименование, p.Адрес, p.Регион, MAX(d.Вес) AS [Максимальный вес детали]\r\nFROM Поставщик AS p INNER JOIN Деталь AS d ON p.[Код поставщика] =d.[Код поставщика]\r\nGROUP BY p.Наименование, p.Адрес, p.Регион;";
+                DisplayQueryResult(
+                    query,
+
+                    "Наименование поставщика".PadRight(50) +
+                    "Адрес".PadRight(25) +
+                    "Регион".PadRight(25) +
+                    "Вес".PadRight(15),
+                    new int[] { 50, 25, 25, 25 }
+                    );
 
 
-                OleDbDataReader reader = command.ExecuteReader();
 
-                listBox1.Items.Clear();
-
-                listBox1.Items.Add("Код покупателя".PadRight(15) + "Телефон".PadRight(20));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(30) + reader[1].ToString().PadRight(25));
-                }
-                reader.Close();
-
-
-                cn.Close();
             }
             catch (Exception exception)
             {
-                cn.Close();
+
                 MessageBox.Show(exception.Message);
             }
+            finally { cn.Close(); }
         }
 
-        private void WithoutDostavka_Click(object sender, EventArgs e)
+        private void buttonZavodTotalWeight_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
 
-                string query = "SELECT [Код доставки], [Дата] FROM Доставка";
-                OleDbCommand command = new OleDbCommand(query, cn);
-
-
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-
-                listBox1.Items.Add("Код доставки".PadRight(15) + "Дата".PadRight(20));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(20) + reader[1].ToString().PadRight(25));
-                }
-                reader.Close();
-
+                string query = "SELECT f.[Номер завода], f.Название, SUM(i_o.[Вес изделия]) AS [Общий вес изделий] FROM Завод AS f INNER JOIN (SELECT i.* FROM Отдел AS ot INNER JOIN Изделие AS i ON ot.[Номер отдела]=i.[Номер отдела]) AS i_o ON f.[Номер завода]=i_o.[Номер завода] GROUP BY f.[Номер завода], f.Название;";
+                DisplayQueryResult(
+                    query,
+                    "Номер завода".PadRight(20) +
+                    "Название".PadRight(30) +
+                    "Общий вес".PadRight(25),
+                    new int[] { 20, 30, 25 }
+                    );
 
 
             }
@@ -762,6 +732,11 @@ namespace DBFactory
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }
