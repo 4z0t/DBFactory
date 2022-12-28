@@ -271,7 +271,7 @@ namespace DBFactory
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(235, 492);
+            this.label4.Location = new System.Drawing.Point(262, 494);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(272, 31);
             this.label4.TabIndex = 30;
@@ -408,9 +408,9 @@ namespace DBFactory
             this.buttonTovarInfo.Name = "buttonTovarInfo";
             this.buttonTovarInfo.Size = new System.Drawing.Size(256, 71);
             this.buttonTovarInfo.TabIndex = 47;
-            this.buttonTovarInfo.Text = "Товары меньше заданного размера";
+            this.buttonTovarInfo.Text = "Изделия и Детали";
             this.buttonTovarInfo.UseVisualStyleBackColor = true;
-            this.buttonTovarInfo.Click += new System.EventHandler(this.buttonSellerInfo_Click);
+            this.buttonTovarInfo.Click += new System.EventHandler(this.buttonIzdeliaDetal_Click);
             // 
             // buttonSellInfo
             // 

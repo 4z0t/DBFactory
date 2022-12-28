@@ -426,32 +426,23 @@ namespace DBFactory
             }
         }
 
-        private void buttonSellerInfo_Click(object sender, EventArgs e)
+        private void buttonIzdeliaDetal_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
-                int tip = Convert.ToInt32(TovarGiveInfoID.Text);
-                string query = "SELECT * FROM Товар WHERE Размеры<=@tip";
-                OleDbCommand command = new OleDbCommand(query, cn);
+                string query = "SELECT i.[Код изделия],i.[Наименование изделия], d.[Код детали],d.Наименование FROM Изделие AS i LEFT JOIN ([Изделие-Деталь] AS i_d LEFT JOIN Деталь AS d ON i_d.[Код детали]=d.[Код детали]) ON i_d.[Код изделия]=i.[Код изделия];";
 
-                command.Parameters.AddWithValue("@tip", tip);
-
-                OleDbDataReader reader = command.ExecuteReader();
-
-                listBox1.Items.Clear();
-
-                listBox1.Items.Add("Номер".PadRight(20) + "Название".PadRight(20) + "Вес".PadRight(25) + "Размер".PadRight(15) + "Склад".PadRight(10));
-                listBox1.Items.Add("");
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader[0].ToString().PadRight(30) + reader[1].ToString().PadRight(25) + reader[2].ToString().PadRight(25) + reader[3].ToString().PadRight(25) + reader[4].ToString().PadRight(10));
-                }
-                reader.Close();
-
-
+                DisplayQueryResult(
+                    query,
+                    "Код изделия".PadRight(30) +
+                    "Наименование изделия".PadRight(30) +
+                    "Код детали".PadRight(30) +
+                    "Наименование детали",
+                    new int[] { 30, 30, 30, 30 }
+                    );
+          
 
             }
             catch (Exception exception)
