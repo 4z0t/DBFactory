@@ -78,15 +78,16 @@ namespace DBFactory
             {
                 cn.Open();
 
-                string query = "SELECT [Наименование], [Размеры], [Срок поставки], [Вес] FROM Деталь AS d";
+                string query = "SELECT * FROM Деталь AS d";
 
                 DisplayQueryResult(
                     query,
+                    "Код".PadRight(10)+
                     "Наименование".PadRight(20) +
                     "Размеры".PadRight(30) +
                     "Срок поставки".PadRight(25) +
                     "Вес".PadRight(10),
-                    new int[] { 30, 20, 40, 40 }
+                    new int[] { 10,30, 20, 40, 40}
                     );
 
             }
@@ -110,7 +111,7 @@ namespace DBFactory
 
                 DisplayQueryResult(
                     query,
-                    "Код изделия".PadRight(10)+
+                    "Код".PadRight(10) +
                     "Наименование".PadRight(20) +
                     "Назначение".PadRight(20) +
                     "Вес".PadRight(20) +
@@ -134,13 +135,16 @@ namespace DBFactory
             {
                 cn.Open();
 
-                string query = "SELECT [Код продавца], [Наименование продавца], [Адрес], [Телефон], [ИНН] FROM Продавец";
+                string query = "SELECT * FROM [Технология изготовления]";
 
 
                 DisplayQueryResult(
                     query,
-                    "Код продавца".PadRight(20) + "Имя".PadRight(20) + "Адрес".PadRight(20) + "Телефон".PadRight(15) + "ИНН".PadRight(10),
-                    new int[] { 30, 20, 20, 20, 10 }
+                    "Код".PadRight(20) +
+                    "Описание".PadRight(20) +
+                    "Разрабочик".PadRight(20) +
+                    "Продолжительность".PadRight(15),
+                    new int[] { 10, 40, 40, 20 }
                     );
 
 
@@ -159,19 +163,14 @@ namespace DBFactory
             {
                 cn.Open();
 
-                string query = "SELECT [Номер накладной], [Цена], [Количество], [Дата продажи], [Код покупателя], [Код продавца], [Код доставки], [Код товара] FROM Продажа";
+                string query = "SELECT * FROM Отдел";
 
                 DisplayQueryResult(
                     query,
                     "Номер".PadRight(10) +
-                    "Цена".PadRight(15) +
-                    "Количество".PadRight(15) +
-                    "Дата".PadRight(35) +
-                    "Покупатель".PadRight(10) +
-                    "Продавец".PadRight(10) +
-                    "Доставка".PadRight(10) +
-                    "Товар".PadRight(15),
-                    new int[] { 15, 25, 15, 15, 25, 15 }
+                    "ФИО начальника".PadRight(15) +
+                    "Номер завода".PadRight(15),
+                    new int[] { 10, 50, 15 }
                     );
 
             }
@@ -188,12 +187,16 @@ namespace DBFactory
             {
                 cn.Open();
 
-                string query = "SELECT [Код склада], [Регион], [Адрес], [Телефон], [Площадь] FROM Склад";
+                string query = "SELECT * FROM Завод";
 
                 DisplayQueryResult(
                     query,
-                    "Номер".PadRight(10) + "Регион".PadRight(29) + "Адрес".PadRight(25) + "Телефон".PadRight(25) + "Площадь".PadRight(10),
-                    new int[] { 10, 25, 25, 25, 10 }
+                    "Номер".PadRight(10) +
+                    "Название".PadRight(29) +
+                    "Адрес".PadRight(25) +
+                    "ФИО директора".PadRight(25),
+
+                    new int[] { 10, 25, 25, 25 }
                     );
 
 
@@ -211,12 +214,16 @@ namespace DBFactory
             {
                 cn.Open();
 
-                string query = "SELECT [Код товара], [Наименование товара], [Вес], [Размеры], [Номер склада] FROM Товар";
+                string query = "SELECT * FROM Поставщик";
 
                 DisplayQueryResult(
                     query,
-                    "Номер".PadRight(20) + "Название".PadRight(20) + "Вес".PadRight(25) + "Размер".PadRight(15) + "Склад".PadRight(10),
-                    new int[] { 30, 25, 25, 25, 10 }
+                    "Код".PadRight(20) +
+                    "Наименование".PadRight(20) +
+                    "Регион".PadRight(25) +
+                    "Адрес".PadRight(15) +
+                    "ФИО Директора".PadRight(10),
+                    new int[] { 10, 25, 25, 25, 10 }
                     );
 
             }
@@ -227,19 +234,19 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonDostavkaDelete_Click(object sender, EventArgs e)
+        private void buttonDetalDelete_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
 
-                int id_pasient = Convert.ToInt32(deleteID.Text);
+                int entryId = Convert.ToInt32(deleteID.Text);
 
-                string query2 = "SELECT Доставка.[Код доставки] FROM Доставка WHERE Доставка.[Код доставки]=" + id_pasient.ToString();
+                string query2 = "SELECT d.[Код детали] FROM Деталь AS d WHERE d.[Код детали]=" + entryId.ToString();
 
                 if (Exists(query2))
                 {
-                    string query = "DELETE FROM Доставка WHERE [Код доставки] =" + id_pasient.ToString();
+                    string query = "DELETE FROM Деталь WHERE [Код детали] =" + entryId.ToString();
                     OleDbCommand command = new OleDbCommand(query, cn);
 
                     command.ExecuteNonQuery();
@@ -259,7 +266,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonBuyerDelete_Click(object sender, EventArgs e)
+        private void buttonIzdelieDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -290,7 +297,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonSellerDelete_Click(object sender, EventArgs e)
+        private void buttonTechDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -321,7 +328,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonSellDelete_Click(object sender, EventArgs e)
+        private void buttonOtdelDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -352,7 +359,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonSkladDelete_Click(object sender, EventArgs e)
+        private void buttonZavodDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -383,7 +390,7 @@ namespace DBFactory
             finally { cn.Close(); }
         }
 
-        private void buttonTovarDelete_Click(object sender, EventArgs e)
+        private void buttonPostavchikDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -536,7 +543,11 @@ namespace DBFactory
 
                 DisplayQueryResult(
                     query,
-                    "Номер".PadRight(20) + "Название".PadRight(20) + "Вес".PadRight(25) + "Размер".PadRight(15) + "Склад".PadRight(10),
+                    "Номер".PadRight(20) +
+                    "Название".PadRight(20) +
+                    "Вес".PadRight(25) +
+                    "Размер".PadRight(15) +
+                    "Склад".PadRight(10),
                     new int[] { 30, 25, 25, 25, 10 }
                     );
             }
@@ -734,6 +745,11 @@ namespace DBFactory
                 cn.Close();
                 MessageBox.Show(exception.Message);
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

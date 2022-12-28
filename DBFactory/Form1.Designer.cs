@@ -183,9 +183,9 @@ namespace DBFactory
             this.buttonTovarDelete.Name = "buttonTovarDelete";
             this.buttonTovarDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonTovarDelete.TabIndex = 22;
-            this.buttonTovarDelete.Text = "Товар";
+            this.buttonTovarDelete.Text = "Поставщик";
             this.buttonTovarDelete.UseVisualStyleBackColor = true;
-            this.buttonTovarDelete.Click += new System.EventHandler(this.buttonTovarDelete_Click);
+            this.buttonTovarDelete.Click += new System.EventHandler(this.buttonPostavchikDelete_Click);
             // 
             // buttonSkladDelete
             // 
@@ -193,9 +193,9 @@ namespace DBFactory
             this.buttonSkladDelete.Name = "buttonSkladDelete";
             this.buttonSkladDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonSkladDelete.TabIndex = 21;
-            this.buttonSkladDelete.Text = "Склад";
+            this.buttonSkladDelete.Text = "Завод";
             this.buttonSkladDelete.UseVisualStyleBackColor = true;
-            this.buttonSkladDelete.Click += new System.EventHandler(this.buttonSkladDelete_Click);
+            this.buttonSkladDelete.Click += new System.EventHandler(this.buttonZavodDelete_Click);
             // 
             // buttonSellDelete
             // 
@@ -203,9 +203,9 @@ namespace DBFactory
             this.buttonSellDelete.Name = "buttonSellDelete";
             this.buttonSellDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonSellDelete.TabIndex = 20;
-            this.buttonSellDelete.Text = "Продажа";
+            this.buttonSellDelete.Text = "Отдел";
             this.buttonSellDelete.UseVisualStyleBackColor = true;
-            this.buttonSellDelete.Click += new System.EventHandler(this.buttonSellDelete_Click);
+            this.buttonSellDelete.Click += new System.EventHandler(this.buttonOtdelDelete_Click);
             // 
             // buttonSellerDelete
             // 
@@ -213,9 +213,9 @@ namespace DBFactory
             this.buttonSellerDelete.Name = "buttonSellerDelete";
             this.buttonSellerDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonSellerDelete.TabIndex = 19;
-            this.buttonSellerDelete.Text = "Продавец";
+            this.buttonSellerDelete.Text = "Технология";
             this.buttonSellerDelete.UseVisualStyleBackColor = true;
-            this.buttonSellerDelete.Click += new System.EventHandler(this.buttonSellerDelete_Click);
+            this.buttonSellerDelete.Click += new System.EventHandler(this.buttonTechDelete_Click);
             // 
             // buttonBuyerDelete
             // 
@@ -223,9 +223,9 @@ namespace DBFactory
             this.buttonBuyerDelete.Name = "buttonBuyerDelete";
             this.buttonBuyerDelete.Size = new System.Drawing.Size(103, 29);
             this.buttonBuyerDelete.TabIndex = 18;
-            this.buttonBuyerDelete.Text = "Покупатель";
+            this.buttonBuyerDelete.Text = "Изделие";
             this.buttonBuyerDelete.UseVisualStyleBackColor = true;
-            this.buttonBuyerDelete.Click += new System.EventHandler(this.buttonBuyerDelete_Click);
+            this.buttonBuyerDelete.Click += new System.EventHandler(this.buttonIzdelieDelete_Click);
             // 
             // buttonDostavkaDelete
             // 
@@ -233,9 +233,9 @@ namespace DBFactory
             this.buttonDostavkaDelete.Name = "buttonDostavkaDelete";
             this.buttonDostavkaDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonDostavkaDelete.TabIndex = 17;
-            this.buttonDostavkaDelete.Text = "Доставка";
+            this.buttonDostavkaDelete.Text = "Деталь";
             this.buttonDostavkaDelete.UseVisualStyleBackColor = true;
-            this.buttonDostavkaDelete.Click += new System.EventHandler(this.buttonDostavkaDelete_Click);
+            this.buttonDostavkaDelete.Click += new System.EventHandler(this.buttonDetalDelete_Click);
             // 
             // label2
             // 
@@ -310,9 +310,10 @@ namespace DBFactory
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(406, 236);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 23);
+            this.label7.Size = new System.Drawing.Size(144, 23);
             this.label7.TabIndex = 36;
-            this.label7.Text = "id для удаления";
+            this.label7.Text = "Код для удаления";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // SkladID
             // 
