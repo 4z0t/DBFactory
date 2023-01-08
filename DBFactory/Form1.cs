@@ -740,6 +740,13 @@ namespace DBFactory
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var detalAddForm = new DetalAddForm(cn);
+            detalAddForm.FormClosed += this.buttonDetal_Click;
+            detalAddForm.Show();
+        }
     }
 
 }

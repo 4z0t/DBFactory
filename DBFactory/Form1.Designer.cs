@@ -85,6 +85,12 @@ namespace DBFactory
             this.Detal_weight_add = new System.Windows.Forms.TextBox();
             this.Detal_size_add = new System.Windows.Forms.TextBox();
             this.Detal_name_add = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -107,7 +113,7 @@ namespace DBFactory
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(301, 29);
+            this.label1.Location = new System.Drawing.Point(311, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 31);
             this.label1.TabIndex = 9;
@@ -115,7 +121,7 @@ namespace DBFactory
             // 
             // buttonDostavka
             // 
-            this.buttonDostavka.Location = new System.Drawing.Point(64, 87);
+            this.buttonDostavka.Location = new System.Drawing.Point(81, 55);
             this.buttonDostavka.Name = "buttonDostavka";
             this.buttonDostavka.Size = new System.Drawing.Size(94, 29);
             this.buttonDostavka.TabIndex = 10;
@@ -125,7 +131,7 @@ namespace DBFactory
             // 
             // buttonBuyer
             // 
-            this.buttonBuyer.Location = new System.Drawing.Point(163, 87);
+            this.buttonBuyer.Location = new System.Drawing.Point(180, 55);
             this.buttonBuyer.Name = "buttonBuyer";
             this.buttonBuyer.Size = new System.Drawing.Size(103, 29);
             this.buttonBuyer.TabIndex = 11;
@@ -135,7 +141,7 @@ namespace DBFactory
             // 
             // buttonSeller
             // 
-            this.buttonSeller.Location = new System.Drawing.Point(272, 87);
+            this.buttonSeller.Location = new System.Drawing.Point(289, 55);
             this.buttonSeller.Name = "buttonSeller";
             this.buttonSeller.Size = new System.Drawing.Size(104, 29);
             this.buttonSeller.TabIndex = 12;
@@ -145,7 +151,7 @@ namespace DBFactory
             // 
             // buttonSale
             // 
-            this.buttonSale.Location = new System.Drawing.Point(382, 87);
+            this.buttonSale.Location = new System.Drawing.Point(399, 55);
             this.buttonSale.Name = "buttonSale";
             this.buttonSale.Size = new System.Drawing.Size(94, 29);
             this.buttonSale.TabIndex = 13;
@@ -155,7 +161,7 @@ namespace DBFactory
             // 
             // buttonSklad
             // 
-            this.buttonSklad.Location = new System.Drawing.Point(482, 87);
+            this.buttonSklad.Location = new System.Drawing.Point(499, 55);
             this.buttonSklad.Name = "buttonSklad";
             this.buttonSklad.Size = new System.Drawing.Size(94, 29);
             this.buttonSklad.TabIndex = 14;
@@ -165,7 +171,7 @@ namespace DBFactory
             // 
             // buttonTovar
             // 
-            this.buttonTovar.Location = new System.Drawing.Point(589, 87);
+            this.buttonTovar.Location = new System.Drawing.Point(606, 55);
             this.buttonTovar.Name = "buttonTovar";
             this.buttonTovar.Size = new System.Drawing.Size(103, 29);
             this.buttonTovar.TabIndex = 15;
@@ -175,7 +181,7 @@ namespace DBFactory
             // 
             // buttonTovarDelete
             // 
-            this.buttonTovarDelete.Location = new System.Drawing.Point(572, 187);
+            this.buttonTovarDelete.Location = new System.Drawing.Point(572, 162);
             this.buttonTovarDelete.Name = "buttonTovarDelete";
             this.buttonTovarDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonTovarDelete.TabIndex = 22;
@@ -185,7 +191,7 @@ namespace DBFactory
             // 
             // buttonSkladDelete
             // 
-            this.buttonSkladDelete.Location = new System.Drawing.Point(472, 187);
+            this.buttonSkladDelete.Location = new System.Drawing.Point(472, 162);
             this.buttonSkladDelete.Name = "buttonSkladDelete";
             this.buttonSkladDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonSkladDelete.TabIndex = 21;
@@ -195,7 +201,7 @@ namespace DBFactory
             // 
             // buttonSellDelete
             // 
-            this.buttonSellDelete.Location = new System.Drawing.Point(372, 187);
+            this.buttonSellDelete.Location = new System.Drawing.Point(372, 162);
             this.buttonSellDelete.Name = "buttonSellDelete";
             this.buttonSellDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonSellDelete.TabIndex = 20;
@@ -205,7 +211,7 @@ namespace DBFactory
             // 
             // buttonSellerDelete
             // 
-            this.buttonSellerDelete.Location = new System.Drawing.Point(272, 187);
+            this.buttonSellerDelete.Location = new System.Drawing.Point(272, 162);
             this.buttonSellerDelete.Name = "buttonSellerDelete";
             this.buttonSellerDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonSellerDelete.TabIndex = 19;
@@ -215,7 +221,7 @@ namespace DBFactory
             // 
             // buttonBuyerDelete
             // 
-            this.buttonBuyerDelete.Location = new System.Drawing.Point(163, 187);
+            this.buttonBuyerDelete.Location = new System.Drawing.Point(163, 162);
             this.buttonBuyerDelete.Name = "buttonBuyerDelete";
             this.buttonBuyerDelete.Size = new System.Drawing.Size(103, 29);
             this.buttonBuyerDelete.TabIndex = 18;
@@ -225,7 +231,7 @@ namespace DBFactory
             // 
             // buttonDostavkaDelete
             // 
-            this.buttonDostavkaDelete.Location = new System.Drawing.Point(64, 187);
+            this.buttonDostavkaDelete.Location = new System.Drawing.Point(64, 162);
             this.buttonDostavkaDelete.Name = "buttonDostavkaDelete";
             this.buttonDostavkaDelete.Size = new System.Drawing.Size(94, 29);
             this.buttonDostavkaDelete.TabIndex = 17;
@@ -237,7 +243,7 @@ namespace DBFactory
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(262, 139);
+            this.label2.Location = new System.Drawing.Point(262, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(256, 31);
             this.label2.TabIndex = 16;
@@ -245,7 +251,7 @@ namespace DBFactory
             // 
             // buttonDetalEdit
             // 
-            this.buttonDetalEdit.Location = new System.Drawing.Point(617, 347);
+            this.buttonDetalEdit.Location = new System.Drawing.Point(631, 318);
             this.buttonDetalEdit.Name = "buttonDetalEdit";
             this.buttonDetalEdit.Size = new System.Drawing.Size(94, 29);
             this.buttonDetalEdit.TabIndex = 24;
@@ -257,7 +263,7 @@ namespace DBFactory
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(285, 276);
+            this.label3.Location = new System.Drawing.Point(281, 251);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(212, 31);
             this.label3.TabIndex = 23;
@@ -267,7 +273,7 @@ namespace DBFactory
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(262, 494);
+            this.label4.Location = new System.Drawing.Point(265, 515);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(272, 31);
             this.label4.TabIndex = 30;
@@ -277,16 +283,16 @@ namespace DBFactory
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(285, 387);
+            this.label6.Location = new System.Drawing.Point(328, 362);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(219, 31);
+            this.label6.Size = new System.Drawing.Size(142, 31);
             this.label6.TabIndex = 32;
-            this.label6.Text = "Добавление детали";
+            this.label6.Text = "Добавление";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // buttoDetalAdd
             // 
-            this.buttoDetalAdd.Location = new System.Drawing.Point(550, 450);
+            this.buttoDetalAdd.Location = new System.Drawing.Point(550, 468);
             this.buttoDetalAdd.Name = "buttoDetalAdd";
             this.buttoDetalAdd.Size = new System.Drawing.Size(106, 29);
             this.buttoDetalAdd.TabIndex = 34;
@@ -296,7 +302,7 @@ namespace DBFactory
             // 
             // deleteID
             // 
-            this.deleteID.Location = new System.Drawing.Point(276, 236);
+            this.deleteID.Location = new System.Drawing.Point(272, 211);
             this.deleteID.Name = "deleteID";
             this.deleteID.Size = new System.Drawing.Size(125, 27);
             this.deleteID.TabIndex = 35;
@@ -305,7 +311,7 @@ namespace DBFactory
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(406, 236);
+            this.label7.Location = new System.Drawing.Point(402, 211);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(144, 23);
             this.label7.TabIndex = 36;
@@ -314,35 +320,35 @@ namespace DBFactory
             // 
             // Detal_id_edit
             // 
-            this.Detal_id_edit.Location = new System.Drawing.Point(100, 348);
+            this.Detal_id_edit.Location = new System.Drawing.Point(103, 320);
             this.Detal_id_edit.Name = "Detal_id_edit";
             this.Detal_id_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_id_edit.TabIndex = 37;
             // 
             // Detal_name_edit
             // 
-            this.Detal_name_edit.Location = new System.Drawing.Point(199, 348);
+            this.Detal_name_edit.Location = new System.Drawing.Point(202, 320);
             this.Detal_name_edit.Name = "Detal_name_edit";
             this.Detal_name_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_name_edit.TabIndex = 38;
             // 
             // Detal_size_edit
             // 
-            this.Detal_size_edit.Location = new System.Drawing.Point(300, 348);
+            this.Detal_size_edit.Location = new System.Drawing.Point(303, 320);
             this.Detal_size_edit.Name = "Detal_size_edit";
             this.Detal_size_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_size_edit.TabIndex = 39;
             // 
             // Detal_weight_edit
             // 
-            this.Detal_weight_edit.Location = new System.Drawing.Point(401, 348);
+            this.Detal_weight_edit.Location = new System.Drawing.Point(404, 320);
             this.Detal_weight_edit.Name = "Detal_weight_edit";
             this.Detal_weight_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_weight_edit.TabIndex = 40;
             // 
             // Detal_date_edit
             // 
-            this.Detal_date_edit.Location = new System.Drawing.Point(500, 348);
+            this.Detal_date_edit.Location = new System.Drawing.Point(503, 320);
             this.Detal_date_edit.Name = "Detal_date_edit";
             this.Detal_date_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_date_edit.TabIndex = 41;
@@ -351,7 +357,7 @@ namespace DBFactory
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(109, 325);
+            this.label8.Location = new System.Drawing.Point(112, 297);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 16);
             this.label8.TabIndex = 42;
@@ -361,7 +367,7 @@ namespace DBFactory
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(301, 325);
+            this.label9.Location = new System.Drawing.Point(304, 297);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 16);
             this.label9.TabIndex = 43;
@@ -371,7 +377,7 @@ namespace DBFactory
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(199, 325);
+            this.label10.Location = new System.Drawing.Point(202, 297);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(82, 16);
             this.label10.TabIndex = 44;
@@ -382,7 +388,7 @@ namespace DBFactory
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(406, 325);
+            this.label11.Location = new System.Drawing.Point(409, 297);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(25, 16);
             this.label11.TabIndex = 45;
@@ -392,7 +398,7 @@ namespace DBFactory
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(500, 325);
+            this.label12.Location = new System.Drawing.Point(503, 297);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 16);
             this.label12.TabIndex = 46;
@@ -400,7 +406,7 @@ namespace DBFactory
             // 
             // buttonTovarInfo
             // 
-            this.buttonTovarInfo.Location = new System.Drawing.Point(3, 604);
+            this.buttonTovarInfo.Location = new System.Drawing.Point(3, 615);
             this.buttonTovarInfo.Name = "buttonTovarInfo";
             this.buttonTovarInfo.Size = new System.Drawing.Size(256, 71);
             this.buttonTovarInfo.TabIndex = 47;
@@ -420,7 +426,7 @@ namespace DBFactory
             // 
             // IzdelieMinWeight
             // 
-            this.IzdelieMinWeight.Location = new System.Drawing.Point(327, 564);
+            this.IzdelieMinWeight.Location = new System.Drawing.Point(328, 582);
             this.IzdelieMinWeight.Name = "IzdelieMinWeight";
             this.IzdelieMinWeight.Size = new System.Drawing.Size(137, 27);
             this.IzdelieMinWeight.TabIndex = 51;
@@ -429,7 +435,7 @@ namespace DBFactory
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(343, 535);
+            this.label14.Location = new System.Drawing.Point(345, 556);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(99, 16);
             this.label14.TabIndex = 53;
@@ -438,7 +444,7 @@ namespace DBFactory
             // 
             // buttonSkladInfo
             // 
-            this.buttonSkladInfo.Location = new System.Drawing.Point(527, 604);
+            this.buttonSkladInfo.Location = new System.Drawing.Point(527, 615);
             this.buttonSkladInfo.Name = "buttonSkladInfo";
             this.buttonSkladInfo.Size = new System.Drawing.Size(256, 71);
             this.buttonSkladInfo.TabIndex = 54;
@@ -458,7 +464,7 @@ namespace DBFactory
             // 
             // WithoutTovar
             // 
-            this.WithoutTovar.Location = new System.Drawing.Point(262, 604);
+            this.WithoutTovar.Location = new System.Drawing.Point(262, 615);
             this.WithoutTovar.Name = "WithoutTovar";
             this.WithoutTovar.Size = new System.Drawing.Size(256, 71);
             this.WithoutTovar.TabIndex = 58;
@@ -480,7 +486,7 @@ namespace DBFactory
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(328, 427);
+            this.label5.Location = new System.Drawing.Point(328, 445);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 16);
             this.label5.TabIndex = 69;
@@ -491,7 +497,7 @@ namespace DBFactory
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(427, 427);
+            this.label16.Location = new System.Drawing.Point(427, 445);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 16);
             this.label16.TabIndex = 68;
@@ -501,7 +507,7 @@ namespace DBFactory
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(126, 427);
+            this.label17.Location = new System.Drawing.Point(126, 445);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(82, 16);
             this.label17.TabIndex = 67;
@@ -511,7 +517,7 @@ namespace DBFactory
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(227, 427);
+            this.label18.Location = new System.Drawing.Point(227, 445);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(52, 16);
             this.label18.TabIndex = 66;
@@ -520,37 +526,98 @@ namespace DBFactory
             // 
             // Detal_date_add
             // 
-            this.Detal_date_add.Location = new System.Drawing.Point(427, 450);
+            this.Detal_date_add.Location = new System.Drawing.Point(427, 468);
             this.Detal_date_add.Name = "Detal_date_add";
             this.Detal_date_add.Size = new System.Drawing.Size(94, 27);
             this.Detal_date_add.TabIndex = 64;
             // 
             // Detal_weight_add
             // 
-            this.Detal_weight_add.Location = new System.Drawing.Point(328, 450);
+            this.Detal_weight_add.Location = new System.Drawing.Point(328, 468);
             this.Detal_weight_add.Name = "Detal_weight_add";
             this.Detal_weight_add.Size = new System.Drawing.Size(94, 27);
             this.Detal_weight_add.TabIndex = 63;
             // 
             // Detal_size_add
             // 
-            this.Detal_size_add.Location = new System.Drawing.Point(227, 450);
+            this.Detal_size_add.Location = new System.Drawing.Point(227, 468);
             this.Detal_size_add.Name = "Detal_size_add";
             this.Detal_size_add.Size = new System.Drawing.Size(94, 27);
             this.Detal_size_add.TabIndex = 62;
             // 
             // Detal_name_add
             // 
-            this.Detal_name_add.Location = new System.Drawing.Point(126, 450);
+            this.Detal_name_add.Location = new System.Drawing.Point(126, 468);
             this.Detal_name_add.Name = "Detal_name_add";
             this.Detal_name_add.Size = new System.Drawing.Size(94, 27);
             this.Detal_name_add.TabIndex = 61;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(603, 395);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 29);
+            this.button1.TabIndex = 75;
+            this.button1.Text = "Поставщики";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(503, 395);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 29);
+            this.button2.TabIndex = 74;
+            this.button2.Text = "Заводы";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(403, 395);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 29);
+            this.button3.TabIndex = 73;
+            this.button3.Text = "Отделы";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(293, 395);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(104, 29);
+            this.button4.TabIndex = 72;
+            this.button4.Text = "Технологии";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(184, 395);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(103, 29);
+            this.button5.TabIndex = 71;
+            this.button5.Text = "Изделия";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(85, 395);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(94, 29);
+            this.button6.TabIndex = 70;
+            this.button6.Text = "Детали";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1528, 781);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
@@ -657,6 +724,12 @@ namespace DBFactory
         private TextBox Detal_weight_add;
         private TextBox Detal_size_add;
         private TextBox Detal_name_add;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
     }
 }
 
