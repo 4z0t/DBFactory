@@ -754,6 +754,13 @@ namespace DBFactory
             zavAddForm.FormClosed += this.buttonZavodi_Click;
             zavAddForm.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var izdelieAddForm = new IzdelieAddForm(cn);
+            izdelieAddForm.FormClosed += this.buttonIzdelia_Click;
+            izdelieAddForm.Show();
+        }
     }
 
 }
