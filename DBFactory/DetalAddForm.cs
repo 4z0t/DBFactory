@@ -71,5 +71,55 @@ namespace DBFactory
             }
 
         }
+
+        private void PostCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_date_add_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_weight_add_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_size_add_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_name_add_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

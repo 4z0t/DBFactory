@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.Detal_date_add = new System.Windows.Forms.TextBox();
             this.Detal_weight_add = new System.Windows.Forms.TextBox();
             this.Detal_size_add = new System.Windows.Forms.TextBox();
             this.Detal_name_add = new System.Windows.Forms.TextBox();
             this.buttoDetalAdd = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Detal_date_add = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.PostCode = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
@@ -50,16 +50,7 @@
             this.label5.Size = new System.Drawing.Size(25, 16);
             this.label5.TabIndex = 78;
             this.label5.Text = "Вес";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(371, 30);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(81, 16);
-            this.label16.TabIndex = 77;
-            this.label16.Text = "Срок поставки";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label17
             // 
@@ -70,6 +61,7 @@
             this.label17.Size = new System.Drawing.Size(82, 16);
             this.label17.TabIndex = 76;
             this.label17.Text = "Наименование";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // label18
             // 
@@ -80,13 +72,7 @@
             this.label18.Size = new System.Drawing.Size(52, 16);
             this.label18.TabIndex = 75;
             this.label18.Text = "Размеры";
-            // 
-            // Detal_date_add
-            // 
-            this.Detal_date_add.Location = new System.Drawing.Point(371, 53);
-            this.Detal_date_add.Name = "Detal_date_add";
-            this.Detal_date_add.Size = new System.Drawing.Size(94, 27);
-            this.Detal_date_add.TabIndex = 74;
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // Detal_weight_add
             // 
@@ -94,6 +80,7 @@
             this.Detal_weight_add.Name = "Detal_weight_add";
             this.Detal_weight_add.Size = new System.Drawing.Size(94, 27);
             this.Detal_weight_add.TabIndex = 73;
+            this.Detal_weight_add.TextChanged += new System.EventHandler(this.Detal_weight_add_TextChanged);
             // 
             // Detal_size_add
             // 
@@ -101,6 +88,7 @@
             this.Detal_size_add.Name = "Detal_size_add";
             this.Detal_size_add.Size = new System.Drawing.Size(94, 27);
             this.Detal_size_add.TabIndex = 72;
+            this.Detal_size_add.TextChanged += new System.EventHandler(this.Detal_size_add_TextChanged);
             // 
             // Detal_name_add
             // 
@@ -108,6 +96,7 @@
             this.Detal_name_add.Name = "Detal_name_add";
             this.Detal_name_add.Size = new System.Drawing.Size(94, 27);
             this.Detal_name_add.TabIndex = 71;
+            this.Detal_name_add.TextChanged += new System.EventHandler(this.Detal_name_add_TextChanged);
             // 
             // buttoDetalAdd
             // 
@@ -119,6 +108,33 @@
             this.buttoDetalAdd.UseVisualStyleBackColor = true;
             this.buttoDetalAdd.Click += new System.EventHandler(this.buttoDetalAdd_Click);
             // 
+            // Detal_date_add
+            // 
+            this.Detal_date_add.Location = new System.Drawing.Point(371, 53);
+            this.Detal_date_add.Name = "Detal_date_add";
+            this.Detal_date_add.Size = new System.Drawing.Size(94, 27);
+            this.Detal_date_add.TabIndex = 74;
+            this.Detal_date_add.TextChanged += new System.EventHandler(this.Detal_date_add_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(371, 30);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(81, 16);
+            this.label16.TabIndex = 77;
+            this.label16.Text = "Срок поставки";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
+            // 
+            // PostCode
+            // 
+            this.PostCode.Location = new System.Drawing.Point(471, 53);
+            this.PostCode.Name = "PostCode";
+            this.PostCode.Size = new System.Drawing.Size(94, 27);
+            this.PostCode.TabIndex = 79;
+            this.PostCode.TextChanged += new System.EventHandler(this.PostCode_TextChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -128,13 +144,7 @@
             this.label1.Size = new System.Drawing.Size(89, 16);
             this.label1.TabIndex = 80;
             this.label1.Text = "Код поставщика";
-            // 
-            // PostCode
-            // 
-            this.PostCode.Location = new System.Drawing.Point(471, 53);
-            this.PostCode.Name = "PostCode";
-            this.PostCode.Size = new System.Drawing.Size(94, 27);
-            this.PostCode.TabIndex = 79;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // DetalAddForm
             // 
@@ -163,15 +173,15 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox Detal_date_add;
         private System.Windows.Forms.TextBox Detal_weight_add;
         private System.Windows.Forms.TextBox Detal_size_add;
         private System.Windows.Forms.TextBox Detal_name_add;
         private System.Windows.Forms.Button buttoDetalAdd;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox Detal_date_add;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox PostCode;
+        private System.Windows.Forms.Label label1;
     }
 }
