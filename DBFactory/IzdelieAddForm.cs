@@ -67,5 +67,65 @@ namespace DBFactory
                 this.Close();
             }
         }
+
+        private void TechTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FactoryTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OtdelTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WeightTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PurposeTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NameTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

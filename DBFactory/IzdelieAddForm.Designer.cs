@@ -52,6 +52,7 @@
             this.label1.Size = new System.Drawing.Size(78, 16);
             this.label1.TabIndex = 91;
             this.label1.Text = "Номер завода";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FactoryTB
             // 
@@ -59,6 +60,7 @@
             this.FactoryTB.Name = "FactoryTB";
             this.FactoryTB.Size = new System.Drawing.Size(94, 27);
             this.FactoryTB.TabIndex = 90;
+            this.FactoryTB.TextChanged += new System.EventHandler(this.FactoryTB_TextChanged);
             // 
             // label5
             // 
@@ -69,6 +71,7 @@
             this.label5.Size = new System.Drawing.Size(25, 16);
             this.label5.TabIndex = 89;
             this.label5.Text = "Вес";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label16
             // 
@@ -79,6 +82,7 @@
             this.label16.Size = new System.Drawing.Size(79, 16);
             this.label16.TabIndex = 88;
             this.label16.Text = "Номер отдела";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label17
             // 
@@ -89,6 +93,7 @@
             this.label17.Size = new System.Drawing.Size(82, 16);
             this.label17.TabIndex = 87;
             this.label17.Text = "Наименование";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // label18
             // 
@@ -99,6 +104,7 @@
             this.label18.Size = new System.Drawing.Size(68, 16);
             this.label18.TabIndex = 86;
             this.label18.Text = "Назначение";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // OtdelTB
             // 
@@ -106,6 +112,7 @@
             this.OtdelTB.Name = "OtdelTB";
             this.OtdelTB.Size = new System.Drawing.Size(94, 27);
             this.OtdelTB.TabIndex = 85;
+            this.OtdelTB.TextChanged += new System.EventHandler(this.OtdelTB_TextChanged);
             // 
             // WeightTB
             // 
@@ -113,6 +120,7 @@
             this.WeightTB.Name = "WeightTB";
             this.WeightTB.Size = new System.Drawing.Size(94, 27);
             this.WeightTB.TabIndex = 84;
+            this.WeightTB.TextChanged += new System.EventHandler(this.WeightTB_TextChanged);
             // 
             // PurposeTB
             // 
@@ -120,6 +128,7 @@
             this.PurposeTB.Name = "PurposeTB";
             this.PurposeTB.Size = new System.Drawing.Size(94, 27);
             this.PurposeTB.TabIndex = 83;
+            this.PurposeTB.TextChanged += new System.EventHandler(this.PurposeTB_TextChanged);
             // 
             // NameTB
             // 
@@ -127,6 +136,7 @@
             this.NameTB.Name = "NameTB";
             this.NameTB.Size = new System.Drawing.Size(94, 27);
             this.NameTB.TabIndex = 82;
+            this.NameTB.TextChanged += new System.EventHandler(this.NameTB_TextChanged);
             // 
             // buttoDetalAdd
             // 
@@ -147,6 +157,7 @@
             this.label2.Size = new System.Drawing.Size(86, 16);
             this.label2.TabIndex = 93;
             this.label2.Text = "Код технологии";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // TechTB
             // 
@@ -154,6 +165,7 @@
             this.TechTB.Name = "TechTB";
             this.TechTB.Size = new System.Drawing.Size(94, 27);
             this.TechTB.TabIndex = 92;
+            this.TechTB.TextChanged += new System.EventHandler(this.TechTB_TextChanged);
             // 
             // IzdelieAddForm
             // 

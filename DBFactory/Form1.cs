@@ -779,6 +779,13 @@ namespace DBFactory
             form.FormClosed += this.buttonOtdeli_Click;
             form.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var form = new PostavchikAddForm(cn);
+            form.FormClosed += this.buttonPostavchiki_Click;
+            form.Show();
+        }
     }
 
 }
