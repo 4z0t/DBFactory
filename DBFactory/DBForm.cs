@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Reflection;
 
 namespace DBFactory
 {
@@ -666,7 +668,7 @@ namespace DBFactory
 
         }
 
-      
+
 
         private void label7_Click(object sender, EventArgs e)
         {
@@ -753,10 +755,160 @@ namespace DBFactory
 
         private void button7_Click(object sender, EventArgs e)
         {
+            try
+            {
+                cn.Open();
+
+
+                DateTime date = Convert.ToDateTime(DateTB.Text);
+
+                string query = "SELECT *" +
+"FROM Изделие AS i                      " +
+"WHERE i.[Код изделия] <> ALL(          " +
+"SELECT i_d.[Код изделия]               " +
+"FROM[Изделие-Деталь] AS i_d          " +
+"INNER JOIN(                            " +
+"SELECT *                               " +
+"FROM Деталь AS d                       " +
+"WHERE d.[Срок поставки] >= @date       " +
+") AS dd                                " +
+"ON i_d.[Код детали] = dd.[Код детали]  " +
+");";
+                Console.WriteLine(query);
+                OleDbCommand command = new OleDbCommand();
+                command.CommandText = query;
+                command.Connection = cn;
+                command.Parameters.Add("@date", OleDbType.Date).Value = date;
+
+                OleDbDataReader reader = command.ExecuteReader();
+
+                listBox1.Items.Clear();
+                listBox1.Items.Add(
+                    "Код".PadRight(10) +
+                    "Наименование".PadRight(20) +
+                    "Назначение".PadRight(20) +
+                    "Вес".PadRight(20) +
+                    "Код технологии".PadRight(15));
+                listBox1.Items.Add("");
+
+                AddToListBox(listBox1, reader, new int[] { 10, 30, 20, 40, 40 });
+                reader.Close();
+               
+
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
 
         }
 
         private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_id_edit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_name_edit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_size_edit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_weight_edit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_date_edit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

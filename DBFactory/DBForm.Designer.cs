@@ -85,9 +85,9 @@ namespace DBFactory
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DateTB = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CountTB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBox1
@@ -99,12 +99,14 @@ namespace DBFactory
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(725, 744);
             this.listBox1.TabIndex = 7;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // label1
             // 
@@ -115,6 +117,7 @@ namespace DBFactory
             this.label1.Size = new System.Drawing.Size(175, 31);
             this.label1.TabIndex = 9;
             this.label1.Text = "Данные таблиц";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonDostavka
             // 
@@ -245,6 +248,7 @@ namespace DBFactory
             this.label2.Size = new System.Drawing.Size(256, 31);
             this.label2.TabIndex = 16;
             this.label2.Text = "Удаление данных по id";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // buttonDetalEdit
             // 
@@ -265,6 +269,7 @@ namespace DBFactory
             this.label3.Size = new System.Drawing.Size(212, 31);
             this.label3.TabIndex = 23;
             this.label3.Text = "Изменение Детали";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -275,6 +280,7 @@ namespace DBFactory
             this.label4.Size = new System.Drawing.Size(272, 31);
             this.label4.TabIndex = 30;
             this.label4.Text = "Получение информации";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label6
             // 
@@ -293,6 +299,7 @@ namespace DBFactory
             this.deleteID.Name = "deleteID";
             this.deleteID.Size = new System.Drawing.Size(125, 27);
             this.deleteID.TabIndex = 35;
+            this.deleteID.TextChanged += new System.EventHandler(this.deleteID_TextChanged);
             // 
             // label7
             // 
@@ -311,6 +318,7 @@ namespace DBFactory
             this.Detal_id_edit.Name = "Detal_id_edit";
             this.Detal_id_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_id_edit.TabIndex = 37;
+            this.Detal_id_edit.TextChanged += new System.EventHandler(this.Detal_id_edit_TextChanged);
             // 
             // Detal_name_edit
             // 
@@ -318,6 +326,7 @@ namespace DBFactory
             this.Detal_name_edit.Name = "Detal_name_edit";
             this.Detal_name_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_name_edit.TabIndex = 38;
+            this.Detal_name_edit.TextChanged += new System.EventHandler(this.Detal_name_edit_TextChanged);
             // 
             // Detal_size_edit
             // 
@@ -325,6 +334,7 @@ namespace DBFactory
             this.Detal_size_edit.Name = "Detal_size_edit";
             this.Detal_size_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_size_edit.TabIndex = 39;
+            this.Detal_size_edit.TextChanged += new System.EventHandler(this.Detal_size_edit_TextChanged);
             // 
             // Detal_weight_edit
             // 
@@ -332,6 +342,7 @@ namespace DBFactory
             this.Detal_weight_edit.Name = "Detal_weight_edit";
             this.Detal_weight_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_weight_edit.TabIndex = 40;
+            this.Detal_weight_edit.TextChanged += new System.EventHandler(this.Detal_weight_edit_TextChanged);
             // 
             // Detal_date_edit
             // 
@@ -339,6 +350,7 @@ namespace DBFactory
             this.Detal_date_edit.Name = "Detal_date_edit";
             this.Detal_date_edit.Size = new System.Drawing.Size(94, 27);
             this.Detal_date_edit.TabIndex = 41;
+            this.Detal_date_edit.TextChanged += new System.EventHandler(this.Detal_date_edit_TextChanged);
             // 
             // label8
             // 
@@ -349,6 +361,7 @@ namespace DBFactory
             this.label8.Size = new System.Drawing.Size(64, 16);
             this.label8.TabIndex = 42;
             this.label8.Text = "Код детали";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -359,6 +372,7 @@ namespace DBFactory
             this.label9.Size = new System.Drawing.Size(44, 16);
             this.label9.TabIndex = 43;
             this.label9.Text = "Размер";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -380,6 +394,7 @@ namespace DBFactory
             this.label11.Size = new System.Drawing.Size(25, 16);
             this.label11.TabIndex = 45;
             this.label11.Text = "Вес";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
@@ -390,6 +405,7 @@ namespace DBFactory
             this.label12.Size = new System.Drawing.Size(81, 16);
             this.label12.TabIndex = 46;
             this.label12.Text = "Срок поставки";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // buttonTovarInfo
             // 
@@ -559,13 +575,15 @@ namespace DBFactory
             this.label5.Size = new System.Drawing.Size(32, 16);
             this.label5.TabIndex = 79;
             this.label5.Text = "Дата";
+            this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
-            // textBox1
+            // DateTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(572, 582);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 27);
-            this.textBox1.TabIndex = 78;
+            this.DateTB.Location = new System.Drawing.Point(572, 582);
+            this.DateTB.Name = "DateTB";
+            this.DateTB.Size = new System.Drawing.Size(137, 27);
+            this.DateTB.TabIndex = 78;
+            this.DateTB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label13
             // 
@@ -576,13 +594,15 @@ namespace DBFactory
             this.label13.Size = new System.Drawing.Size(66, 16);
             this.label13.TabIndex = 81;
             this.label13.Text = "Количество";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
-            // textBox2
+            // CountTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(64, 582);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 27);
-            this.textBox2.TabIndex = 80;
+            this.CountTB.Location = new System.Drawing.Point(64, 582);
+            this.CountTB.Name = "CountTB";
+            this.CountTB.Size = new System.Drawing.Size(137, 27);
+            this.CountTB.TabIndex = 80;
+            this.CountTB.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // DBForm
             // 
@@ -590,9 +610,9 @@ namespace DBFactory
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1528, 781);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.CountTB);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.DateTB);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button1);
@@ -698,9 +718,9 @@ namespace DBFactory
         private Button button7;
         private Button button8;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox DateTB;
         private Label label13;
-        private TextBox textBox2;
+        private TextBox CountTB;
     }
 }
 
