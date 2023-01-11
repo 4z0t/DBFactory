@@ -810,7 +810,40 @@ namespace DBFactory
 
         private void button8_Click(object sender, EventArgs e)
         {
+            try
+            {
+                cn.Open();
 
+
+                int count = Convert.ToInt32(CountTB.Text);
+
+                string query ="DELETE * "+
+"FROM Изделие AS i " +
+"WHERE "+count+" = ALL(SELECT COUNT(i_d.[Код детали]) FROM[Изделие-Деталь] AS i_d WHERE i_d.[Код изделия] = i.[Код изделия] GROUP BY i_d.[Код изделия]);";
+                OleDbCommand command = new OleDbCommand(query, cn);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Данные о записи удалены");
+                string query2 = "SELECT * FROM Изделие";
+
+                DisplayQueryResult(
+                    query2,
+                    "Код".PadRight(10) +
+                    "Наименование".PadRight(20) +
+                    "Назначение".PadRight(20) +
+                    "Вес".PadRight(20) +
+                    "Код технологии".PadRight(15),
+                    new int[] { 10, 30, 30, 20, 10 }
+                    );
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
