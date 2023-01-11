@@ -665,51 +665,7 @@ namespace DBFactory
 
         }
 
-        private void buttonDetalAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                cn.Open();
-
-                string name = Convert.ToString(Detal_name_add.Text);
-                int size = Convert.ToInt32(Detal_size_add.Text);
-                int weight = Convert.ToInt32(Detal_weight_add.Text);
-                DateTime date = Convert.ToDateTime(Detal_date_add.Text);
-
-                string query = "INSERT INTO Деталь ( [Наименование], [Размеры], [Срок поставки], [Вес], [Код поставщика] )" +
-                    " VALUES ('" + name + "', " + size + ", @date, " + weight + ",1)";
-                Console.WriteLine(query);
-                OleDbCommand command = new OleDbCommand();
-                command.CommandText = query;
-                command.Connection = cn;
-                command.Parameters.Add("@date", OleDbType.Date).Value = date;
-
-                command.ExecuteNonQuery();
-                MessageBox.Show("Данные о складе обновлены");
-
-                cn.Close();
-
-                cn.Open();
-
-                string query1 = "SELECT * FROM Деталь AS d";
-
-                DisplayQueryResult(
-                    query1,
-                    "Код".PadRight(10) +
-                    "Наименование".PadRight(20) +
-                    "Размеры".PadRight(30) +
-                    "Срок поставки".PadRight(25) +
-                    "Вес".PadRight(10),
-                    new int[] { 10, 30, 20, 40, 40 }
-                    );
-
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            finally { cn.Close(); }
-        }
+      
 
         private void label7_Click(object sender, EventArgs e)
         {
@@ -784,6 +740,13 @@ namespace DBFactory
         {
             var form = new PostavchikAddForm(cn);
             form.FormClosed += this.buttonPostavchiki_Click;
+            form.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var form = new TechAddForm(cn);
+            form.FormClosed += this.buttonTech_Click;
             form.Show();
         }
     }
