@@ -430,6 +430,7 @@ namespace DBFactory
             this.IzdelieMinWeight.Name = "IzdelieMinWeight";
             this.IzdelieMinWeight.Size = new System.Drawing.Size(137, 27);
             this.IzdelieMinWeight.TabIndex = 51;
+            this.IzdelieMinWeight.TextChanged += new System.EventHandler(this.IzdelieMinWeight_TextChanged);
             // 
             // label14
             // 
@@ -530,6 +531,7 @@ namespace DBFactory
             this.Detal_date_add.Name = "Detal_date_add";
             this.Detal_date_add.Size = new System.Drawing.Size(94, 27);
             this.Detal_date_add.TabIndex = 64;
+            this.Detal_date_add.TextChanged += new System.EventHandler(this.Detal_date_add_TextChanged);
             // 
             // Detal_weight_add
             // 

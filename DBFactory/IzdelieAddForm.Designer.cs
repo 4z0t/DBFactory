@@ -29,20 +29,18 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.PostCode = new System.Windows.Forms.TextBox();
+            this.FactoryTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.Detal_date_add = new System.Windows.Forms.TextBox();
-            this.Detal_weight_add = new System.Windows.Forms.TextBox();
-            this.Detal_size_add = new System.Windows.Forms.TextBox();
-            this.Detal_name_add = new System.Windows.Forms.TextBox();
+            this.OtdelTB = new System.Windows.Forms.TextBox();
+            this.WeightTB = new System.Windows.Forms.TextBox();
+            this.PurposeTB = new System.Windows.Forms.TextBox();
+            this.NameTB = new System.Windows.Forms.TextBox();
             this.buttoDetalAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TechTB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -55,12 +53,12 @@
             this.label1.TabIndex = 91;
             this.label1.Text = "Номер завода";
             // 
-            // PostCode
+            // FactoryTB
             // 
-            this.PostCode.Location = new System.Drawing.Point(438, 36);
-            this.PostCode.Name = "PostCode";
-            this.PostCode.Size = new System.Drawing.Size(94, 27);
-            this.PostCode.TabIndex = 90;
+            this.FactoryTB.Location = new System.Drawing.Point(438, 36);
+            this.FactoryTB.Name = "FactoryTB";
+            this.FactoryTB.Size = new System.Drawing.Size(94, 27);
+            this.FactoryTB.TabIndex = 90;
             // 
             // label5
             // 
@@ -102,37 +100,37 @@
             this.label18.TabIndex = 86;
             this.label18.Text = "Назначение";
             // 
-            // Detal_date_add
+            // OtdelTB
             // 
-            this.Detal_date_add.Location = new System.Drawing.Point(338, 36);
-            this.Detal_date_add.Name = "Detal_date_add";
-            this.Detal_date_add.Size = new System.Drawing.Size(94, 27);
-            this.Detal_date_add.TabIndex = 85;
+            this.OtdelTB.Location = new System.Drawing.Point(338, 36);
+            this.OtdelTB.Name = "OtdelTB";
+            this.OtdelTB.Size = new System.Drawing.Size(94, 27);
+            this.OtdelTB.TabIndex = 85;
             // 
-            // Detal_weight_add
+            // WeightTB
             // 
-            this.Detal_weight_add.Location = new System.Drawing.Point(239, 36);
-            this.Detal_weight_add.Name = "Detal_weight_add";
-            this.Detal_weight_add.Size = new System.Drawing.Size(94, 27);
-            this.Detal_weight_add.TabIndex = 84;
+            this.WeightTB.Location = new System.Drawing.Point(239, 36);
+            this.WeightTB.Name = "WeightTB";
+            this.WeightTB.Size = new System.Drawing.Size(94, 27);
+            this.WeightTB.TabIndex = 84;
             // 
-            // Detal_size_add
+            // PurposeTB
             // 
-            this.Detal_size_add.Location = new System.Drawing.Point(138, 36);
-            this.Detal_size_add.Name = "Detal_size_add";
-            this.Detal_size_add.Size = new System.Drawing.Size(94, 27);
-            this.Detal_size_add.TabIndex = 83;
+            this.PurposeTB.Location = new System.Drawing.Point(138, 36);
+            this.PurposeTB.Name = "PurposeTB";
+            this.PurposeTB.Size = new System.Drawing.Size(94, 27);
+            this.PurposeTB.TabIndex = 83;
             // 
-            // Detal_name_add
+            // NameTB
             // 
-            this.Detal_name_add.Location = new System.Drawing.Point(37, 36);
-            this.Detal_name_add.Name = "Detal_name_add";
-            this.Detal_name_add.Size = new System.Drawing.Size(94, 27);
-            this.Detal_name_add.TabIndex = 82;
+            this.NameTB.Location = new System.Drawing.Point(37, 36);
+            this.NameTB.Name = "NameTB";
+            this.NameTB.Size = new System.Drawing.Size(94, 27);
+            this.NameTB.TabIndex = 82;
             // 
             // buttoDetalAdd
             // 
-            this.buttoDetalAdd.Location = new System.Drawing.Point(338, 84);
+            this.buttoDetalAdd.Location = new System.Drawing.Point(289, 85);
             this.buttoDetalAdd.Name = "buttoDetalAdd";
             this.buttoDetalAdd.Size = new System.Drawing.Size(106, 29);
             this.buttoDetalAdd.TabIndex = 81;
@@ -150,49 +148,30 @@
             this.label2.TabIndex = 93;
             this.label2.Text = "Код технологии";
             // 
-            // textBox1
+            // TechTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(538, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(94, 27);
-            this.textBox1.TabIndex = 92;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(638, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 16);
-            this.label3.TabIndex = 95;
-            this.label3.Text = "Код детали";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(638, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(94, 27);
-            this.textBox2.TabIndex = 94;
+            this.TechTB.Location = new System.Drawing.Point(538, 36);
+            this.TechTB.Name = "TechTB";
+            this.TechTB.Size = new System.Drawing.Size(94, 27);
+            this.TechTB.TabIndex = 92;
             // 
             // IzdelieAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 139);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(667, 139);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TechTB);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.PostCode);
+            this.Controls.Add(this.FactoryTB);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.Detal_date_add);
-            this.Controls.Add(this.Detal_weight_add);
-            this.Controls.Add(this.Detal_size_add);
-            this.Controls.Add(this.Detal_name_add);
+            this.Controls.Add(this.OtdelTB);
+            this.Controls.Add(this.WeightTB);
+            this.Controls.Add(this.PurposeTB);
+            this.Controls.Add(this.NameTB);
             this.Controls.Add(this.buttoDetalAdd);
             this.Name = "IzdelieAddForm";
             this.Text = "IzdelieAddForm";
@@ -204,19 +183,17 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox PostCode;
+        private System.Windows.Forms.TextBox FactoryTB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox Detal_date_add;
-        private System.Windows.Forms.TextBox Detal_weight_add;
-        private System.Windows.Forms.TextBox Detal_size_add;
-        private System.Windows.Forms.TextBox Detal_name_add;
+        private System.Windows.Forms.TextBox OtdelTB;
+        private System.Windows.Forms.TextBox WeightTB;
+        private System.Windows.Forms.TextBox PurposeTB;
+        private System.Windows.Forms.TextBox NameTB;
         private System.Windows.Forms.Button buttoDetalAdd;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TechTB;
     }
 }

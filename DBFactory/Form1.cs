@@ -761,6 +761,16 @@ namespace DBFactory
             izdelieAddForm.FormClosed += this.buttonIzdelia_Click;
             izdelieAddForm.Show();
         }
+
+        private void IzdelieMinWeight_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Detal_date_add_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
