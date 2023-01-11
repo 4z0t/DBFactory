@@ -771,6 +771,14 @@ namespace DBFactory
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            var form = new OtdelAddForm(cn);
+            form.FormClosed += this.buttonOtdeli_Click;
+            form.Show();
+        }
     }
 
 }
