@@ -112,6 +112,7 @@
             this.Controls.Add(this.buttoDetalAdd);
             this.Name = "TechAddForm";
             this.Text = "TechAddForm";
+            this.Load += new System.EventHandler(this.TechAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

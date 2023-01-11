@@ -118,6 +118,7 @@
             this.Controls.Add(this.buttoDetalAdd);
             this.Name = "ZavodAddForm";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.ZavodAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

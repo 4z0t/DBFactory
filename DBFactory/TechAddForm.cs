@@ -64,5 +64,10 @@ namespace DBFactory
                 this.Close();
             }
         }
+
+        private void TechAddForm_Load(object sender, EventArgs e)
+        {
+            Text = "Добавление технологии изготовления";
+        }
     }
 }

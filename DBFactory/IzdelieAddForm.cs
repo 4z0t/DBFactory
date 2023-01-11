@@ -127,5 +127,10 @@ namespace DBFactory
         {
 
         }
+
+        private void IzdelieAddForm_Load(object sender, EventArgs e)
+        {
+            Text = "Добавление изделия";
+        }
     }
 }

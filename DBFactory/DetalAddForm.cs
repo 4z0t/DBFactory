@@ -26,7 +26,7 @@ namespace DBFactory
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            Text = "Добавление детали";
         }
 
 

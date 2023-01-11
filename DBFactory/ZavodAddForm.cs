@@ -92,5 +92,10 @@ namespace DBFactory
         {
 
         }
+
+        private void ZavodAddForm_Load(object sender, EventArgs e)
+        {
+            Text = "Добавление завода";
+        }
     }
 }

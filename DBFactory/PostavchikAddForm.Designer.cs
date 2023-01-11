@@ -133,6 +133,7 @@
             this.Controls.Add(this.buttoDetalAdd);
             this.Name = "PostavchikAddForm";
             this.Text = "PostavchikAddForm";
+            this.Load += new System.EventHandler(this.PostavchikAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

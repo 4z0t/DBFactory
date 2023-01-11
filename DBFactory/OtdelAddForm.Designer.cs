@@ -92,6 +92,7 @@
             this.Controls.Add(this.FactoryTB);
             this.Name = "OtdelAddForm";
             this.Text = "OtdelAddForm";
+            this.Load += new System.EventHandler(this.OtdelAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

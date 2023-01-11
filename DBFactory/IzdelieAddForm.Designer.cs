@@ -187,6 +187,7 @@
             this.Controls.Add(this.buttoDetalAdd);
             this.Name = "IzdelieAddForm";
             this.Text = "IzdelieAddForm";
+            this.Load += new System.EventHandler(this.IzdelieAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

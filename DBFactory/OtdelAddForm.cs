@@ -66,5 +66,10 @@ namespace DBFactory
                 this.Close();
             }
         }
+
+        private void OtdelAddForm_Load(object sender, EventArgs e)
+        {
+            Text = "Добавление отдела";
+        }
     }
 }
